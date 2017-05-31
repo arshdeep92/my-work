@@ -1,0 +1,94 @@
+version = '0.1'
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-node-plugin:0.13'
+        classpath 'com.moowork.gradle:gradle-gulp-plugin:0.13'
+    }
+}
+
+apply plugin: 'com.moowork.gulp'
+
+node {
+
+    // Version of node to use.
+    version = '4.4.4'
+
+    // Version of npm to use.
+    npmVersion = '3.9.0'
+
+    download = true
+
+}
+
+gulp {
+    colors = true
+    bufferOutput = false
+}
+
+task build(dependsOn: gulp_build) {
+    description "Builds project running 'gulp build' command."
+}
+
+task clean(dependsOn: gulp_clean) {
+    description "Cleans project running 'gulp clean' command."
+}
+
+task bundle(dependsOn: gulp_bundle) {
+    description "Like build, but doesn't clean first"
+}
+
+task 'test'(type: GulpTask) {
+    description "Runs tests against project JavaScript"
+    args = ["test"]
+    project.addOptionalArguments(args);
+}
+
+task 'build-send-watch'(type: GulpTask) {
+    description "Runs gulp target ('build-send-watch') to build, send and watch resources for changes for automatic upload."
+    args = ["build-send-watch"]
+    project.addOptionalArguments(args);
+}
+
+task 'bsw'(dependsOn: 'build-send-watch')
+
+task 'watch' (type: GulpTask) {
+    description "Runs a gulp watch to build and send and changed resources"
+    args = ["watch"]
+    project.addOptionalArguments(args);
+}
+
+task 'build-send-everything'(type: GulpTask) {
+    description "Runs gulp target ('build-send-everything') to build and send all resources (scripts, styles and assets)."
+    args = ["build-send-everything"]
+    project.addOptionalArguments(args);
+}
+
+task 'send-everything'(type: GulpTask) {
+    description "Runs gulp target ('send-everything') to send all resources (scripts, styles and assets)."
+    args = ["send-everything"]
+    project.addOptionalArguments(args);
+}
+
+task 'send' (type: GulpTask) {
+    description "Sends files if there are newer versions locally"
+    args = ["send"]
+    project.addOptionalArguments(args);
+}
+
+def addOptionalArguments(args) {
+
+    def optionalArgumentNames = ["webdav_user", "webdav_password", "webdav_host", "webdav_port", "webdav_protocol"]
+
+    optionalArgumentNames.each {
+        if (project.hasProperty(it)) {
+            args.push("--$it=${project.property(it)}")
+        }
+    }
+}

@@ -1,0 +1,449 @@
+/* -------------------------------------
+    HOMEPAGE
+------------------------------------- */
+.home-page-template {
+  .wrapper, main {
+    padding-top: 0;
+  }
+  #breadcrumb {
+    background-color: transparent;
+    border: none;
+
+    &.splash {
+      @include tab-gap {
+        top: 0;
+      }
+    }
+
+    nav.navbar #breadcrumb-generic {
+      display: none;
+    }
+  }
+
+  @include tab-only-responsive {
+    #breadcrumb .content-modal {
+      margin-top: 48px;
+    }
+    main {
+      margin-top: 60px !important;
+    }
+  }
+}
+
+.bf-springboard-nav {
+  padding:2rem 0 0;
+  background-color: $off-white;
+}
+
+.bf-tab-control {
+  list-style: none;
+  overflow: visible;
+  @include displayflex;
+
+  li {
+    width: 50%;
+    padding: 0 3.5rem;
+    float: left;
+    position: relative;
+
+    // Leave enough space for chevron which is 1rem
+    padding-bottom: 1.5rem;
+
+    a {
+      text-decoration: none;
+      overflow: visible;
+      display: block;
+
+    }
+
+    // Chevron under tab li
+    &:after {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      pointer-events: none;
+      border-color: rgba(0, 133, 202, 0);
+      border-bottom-color: $light-grey;
+      border-width: 1rem;
+      display: block;
+      margin: 0 auto;
+      position:absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .material-icons {
+      color: $light-grey;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.07;
+      background-color: $off-white;
+      display: block;
+      left: 50%;
+      top: -0.525rem;
+      margin: 0 auto 0 -1.25rem;
+      -webkit-transform: translate(0);
+      -ms-transform: translate(0);
+      transform: translate(0);
+      width: 2.5rem;
+      position: absolute;
+    }
+
+    h4 {
+      color: $dark-grey;
+      font-family: $heading;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.17;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 65%;;
+      padding: 3px 3px 0 3px;
+      position: relative;
+
+      background-color: $light-grey;
+      background-image: linear-gradient($light-grey, $off-white);
+      background: $light-grey;
+      background: linear-gradient($light-grey, $off-white);
+
+      span {
+        display: block;
+        background-color: $off-white;
+        padding: 1.25rem 1rem 0;
+      }
+    }
+
+    p {
+      color: $grey;
+      font-family: $sans;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.43;
+    }
+
+    &.active {
+      &:after {
+        border-color: rgba(0, 133, 202, 0);
+        border-bottom-color: $blue;
+      }
+
+      .material-icons {
+        opacity: 1;
+        color: $blue;
+      }
+
+      h4 {
+        color: $navy;
+      }
+
+      p {
+        color: $dark-grey;
+      }
+    }
+  }
+}
+
+.bf-tab-content {
+  background-color: $blue;
+  height: 4.75rem;
+  color: $smoke;
+  font-family: $heading;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.13;
+  margin-bottom: 2rem;
+
+  .tab-pane {
+    ul {
+      list-style: none;
+
+      @include displayflex;
+
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+
+      -ms-flex-align: center;
+      align-items: center;
+
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+
+      -ms-flex-pack: center;
+      justify-content: center;
+
+      height: 5.75rem;
+      padding: 0 2rem;
+
+      li {
+        display: inline-block;
+        text-decoration: underline;
+        padding: 0 .85rem;
+
+        a {
+          color: $white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.homepage{
+	.intro-message{
+		h1,h2,h3{
+			//color:$white;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+		}
+		a.btn-default{
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+			&:hover{
+				text-shadow: none;
+			}
+		}
+	}
+}
+/*Added by Justin to manage the Icons on the Homepage*/
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 3.6rem; color: $blue }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/*Style Added by Vijay for Homepage*/
+.home-bel-advantage{
+  margin-top: 1.875rem;
+  .color-navy{text-align: left}
+  .under-line{
+    border-top: 1px solid $blue;
+    content: "";
+    display: block;
+    margin-bottom: 10px;
+    margin-top: -12px;
+    width: 1.5rem;
+  }
+  .read-more  {
+    font-size: 0.7rem;
+    text-decoration: underline;
+    text-transform:uppercase;
+    font-weight: 700;
+
+  }
+  .right-angle:after {
+    content: "\203A";
+    padding-left: 0.2rem;
+    color: $blue;
+  }
+  .small-para{font-size: 0.8rem; text-align: left}
+}
+
+.home-feature{
+  margin-top: 0.2rem;
+}
+.container-bel-solutions{
+  padding:0;
+}
+.container .bel-solutions{
+  margin-top: 1.875rem;
+  background: url(/images/Bel+overview.png) no-repeat center;
+  background-size:100%;
+  @include mob {
+    background-size: 136% 73%;
+    overflow: auto;
+  }
+  @include tab {
+  background-size: 131% 89%;
+  overflow: auto;
+}
+  @include dsk {
+    background-size:103%;
+  }
+  .under-line{
+    border-top: 1px solid $blue;
+    content: "";
+    display: block;
+    margin-bottom: 10px;
+    margin-top: -12px;
+    width: 1.5rem;
+  }
+  .read-more  {
+    font-size: 0.7rem;
+    text-decoration: underline;
+    text-transform:uppercase;
+    font-weight: 700;
+
+  }
+  .right-angle:after {
+    content: "\203A";
+    padding-left: 0.2rem;
+    color: $blue;
+  }
+  .small-para{font-size: 0.8rem; text-align: left}
+  .color-navy{text-align: left}
+}
+.bel-solutions-content{
+  padding:3rem 0 4.5rem 1rem;
+
+}
+
+/*
+---------------------------------------------------------------------------------------------------
+Added by Arshdeep to manage arrow sliders inside products and applications tab on the Homepage
+---------------------------------------------------------------------------------------------------
+*/
+.bf-tab-control #brandDiv {
+
+  width: 50%;
+  padding: 0 3.5rem;
+  float: left;
+  position: relative;
+  padding-bottom: 1.5rem; }
+
+@media (max-width: 764px){
+  #searchForm {
+    width: 70%!important;
+    margin-left: 5rem!important;
+  }
+  .bf-tab-control{
+    display:none;
+  }
+  .bf-tab-content{
+    height: 14.75rem;
+  }
+  .img-resize{
+    width: 125px;
+  }
+  .Belbrand-div{
+    height:50px;
+    padding-top: 25px;
+  }
+  .searchForm-header {
+    width: 70%;
+    margin-left: 5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .img-resize {
+    width: 110px;
+  }
+   .Belbrand-div{
+    margin: 3px 5px 0px 5px;
+    padding: 25px 15px 0 15px;
+    width: 15%;
+  }
+}
+@media (max-width: 1024px) {
+  #logo-white-3,#logo-white-4{
+    width: 95px;
+  }
+}
+@media (max-width: 764px) {
+  #logo-white-3,#logo-white-4{
+    width: 95px;
+    margin-left: -28px;
+  }
+}
+@media (min-width: 1200px){
+  .Belbrand-div {
+    padding-top: 25px;
+    width: 16%;
+  }
+}
+
+#logo-white-3,#logo-white-4{
+  @include mob{
+    width: 97px;
+    margin-left: -28px;
+  }
+}
+#logo-white-5,#logo-white-6{
+  @include mob{
+    width: 116px;
+    margin-left: -8px;
+  }
+}
+.bf-tab-control #brandDiv a {
+  text-decoration: none;
+  overflow: visible;
+  display: block; }
+
+.bf-tab-control #brandDiv:after {
+  content: " ";
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border-color: rgba(0, 133, 202, 0);
+  border-bottom-color: #ccd6dd;
+  border-width: 1rem;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.bf-tab-control #brandDiv .material-icons, .bf-tab-control #brandDiv .part-numbers-table input[type=checkbox]:checked + label i, .part-numbers-table input[type=checkbox]:checked + label .bf-tab-control #brandDiv i, .bf-tab-control #brandDiv .part-numbers-table th.sorting_desc:after, .part-numbers-table .bf-tab-control #brandDiv th.sorting_desc:after, .bf-tab-control #brandDiv .part-numbers-table th.sorting_asc:after, .part-numbers-table .bf-tab-control #brandDiv th.sorting_asc:after, .bf-tab-control #brandDiv .quality-environment-landing-template .file-indicator, .quality-environment-landing-template .bf-tab-control #brandDiv .file-indicator, .bf-tab-control #brandDiv .quality-environment-landing-template .table-controls .dataTables_filter label:after, .quality-environment-landing-template .table-controls .dataTables_filter .bf-tab-control li label:after {
+  color: #ccd6dd;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.07;
+  background-color: #EEF1F4;
+  display: block;
+  left: 50%;
+  top: -0.525rem;
+  margin: 0 auto 0 -1.25rem;
+  transform: translate(0);
+  width: 2.5rem;
+  position: absolute; }
+
+.bf-tab-control #brandDiv h4 {
+  color: #66839a;
+  font-family: "avant-garde-std", "Acumin Pro", "Arial", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.17;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 65%;
+  padding: 3px 3px 0 3px;
+  position: relative;
+  background-color: #ccd6dd;
+  background-image: linear-gradient(#ccd6dd, #EEF1F4);
+  background: #ccd6dd;
+  background: linear-gradient(#ccd6dd, #EEF1F4); }
+
+.bf-tab-control #brandDiv h4 span {
+  display: block;
+  background-color: #EEF1F4;
+  padding: 1.25rem 1rem 0; }
+
+.bf-tab-control #brandDiv p {
+  color: #99acbc;
+  font-family: "acumin-pro", "Acumin Pro", "Arial", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43; }
+
+.bf-tab-control #brandDiv.active:after {
+  border-color: rgba(0, 133, 202, 0);
+  border-bottom-color: #0085CA; }
+
+.bf-tab-control #brandDiv.active .material-icons, .bf-tab-control #brandDiv.active .part-numbers-table input[type=checkbox]:checked + label i, .part-numbers-table input[type=checkbox]:checked + label .bf-tab-control #brandDiv.active i, .bf-tab-control #brandDiv.active .part-numbers-table th.sorting_desc:after, .part-numbers-table .bf-tab-control #brandDiv.active th.sorting_desc:after, .bf-tab-control #brandDiv.active .part-numbers-table th.sorting_asc:after, .part-numbers-table .bf-tab-control #brandDiv.active th.sorting_asc:after, .bf-tab-control #brandDiv.active .quality-environment-landing-template .file-indicator, .quality-environment-landing-template .bf-tab-control #brandDiv.active .file-indicator, .bf-tab-control #brandDiv.active .quality-environment-landing-template .table-controls .dataTables_filter label:after, .quality-environment-landing-template .table-controls .dataTables_filter .bf-tab-control #brandDiv.active label:after {
+  opacity: 1;
+  color: #0085CA; }
+
+.bf-tab-control #brandDiv.active h4 {
+  color: #003057; }
+
+.bf-tab-control #brandDiv.active p {
+  color: #66839a; }

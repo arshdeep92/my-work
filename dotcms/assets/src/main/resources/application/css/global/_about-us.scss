@@ -1,0 +1,94 @@
+
+.about-us-template {
+  /*margin-left:3.6rem;*/
+  text-align: left;
+
+  .accordian-box {
+    display: block;
+    border-top: solid .06rem $light-grey;
+  }
+
+  .arrow-glyphicon {
+    border-radius: 15px;
+    border-style: solid;
+    border-width: .06rem;
+    font-size: 0.7rem;
+    padding: .06rem;
+    float: right;
+    color: $blue;
+    margin-top: 0.8rem;
+    @include mob {
+      margin-top: 4px;
+    }
+  }
+
+  .locations-arrow-glyphicon {
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 15px;
+    padding: 1px;
+    color: $blue;
+  }
+
+  .bel-group {
+    /*color:$navy;*/
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    line-height: 1rem;
+    margin-top: 1rem;
+  }
+  .brand-hed-1,.brand-hed-3,.brand-hed-5, .brand-hed-6 {
+    font-weight: 700;
+    display: inline;
+    float: left;
+    padding: 15px 43px;
+    @include mob {
+      padding: 4px 12px;
+      font-size: 0.7rem;
+    }
+  }
+  .brand-hed-2,.brand-hed-4{
+    font-weight: 700;
+    display: inline;
+    float: left;
+    padding: 15px 72px;
+    @include mob {
+      padding: 4px 12px;
+      font-size: 0.7rem;
+    }
+  }
+  .brand-logo-1, .brand-logo-3, .brand-logo-5, .brand-logo-6 {
+    float: left;
+    width: 180px;
+    @include mob {
+      width: 68px;
+    }
+  }
+    .brand-logo-2, .brand-logo-4{
+      float: left;
+      width: 152px;
+      @include mob {
+        width: 68px;
+      }
+    }
+
+  .panel-heading {
+    width: 100%;
+    height: 4rem;
+    padding: 10px 8px!important;
+    background: none!important;
+    h4{
+      /*padding-top: 7px;*/
+    }
+    @include tab-landscape {
+
+    }
+  @include mob {
+    padding: 2px 8px!important;
+    height: 2.6rem;
+  }
+}
+}

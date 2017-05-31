@@ -1,0 +1,179 @@
+.quality-environment-landing-template {
+
+  main {
+    padding-top: 0;
+  }
+
+  .preamble-row {
+    padding-top:1.5rem;
+
+    .links-container {
+      text-align: center;
+    }
+  }
+
+  .preamble-body {
+    text-align: left;
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .logo-container {
+    width: 20rem;
+    padding-left:0.5rem;
+    padding-right:0.5rem;
+    img {
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+
+  .info-area {
+    flex:1;
+    text-align: left;
+    h1, h2, h3, h4, h5 {
+      margin-bottom:0.5rem;
+    }
+  }
+
+  .certification-row {
+    border-bottom: 1px solid $light-grey;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @include displayflex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .file-indicator {
+    @extend .material-icons;
+
+    &::before {
+      content:'\E24D';
+      color: $red;
+      font-size:2.5rem;
+      margin-right:0.5rem;
+      margin-left:0.5rem;
+    }
+
+    text-decoration: none;
+    position: relative;
+
+    > span {
+      font-family: $sans;
+      position: absolute;
+      text-transform: uppercase;
+      color:$white;
+      font-weight:100;
+      top:40%;
+      left:0;
+      width: 100%;
+      text-align: center;
+      font-size:0.6rem;
+
+      &.four-char-extension {
+        font-size:0.5rem;
+      }
+
+    }
+  }
+
+  .product-change-notification-details {
+    padding: 2rem .75rem 0;
+    @include displayflex();
+
+    .pcn-product-content {
+      border-right: 2px solid $navy;
+    }
+  }
+
+  .table-controls {
+    padding: 0 .75rem 1rem;
+
+    & > [class^="col-"] {
+      position: relative;
+      overflow: auto;
+      padding-top: 2rem;
+      border-right: 2px solid $navy;
+    }
+
+    .dataTables_filter {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+
+      label {
+        position: relative;
+        color: $navy;
+
+        &:after {
+          @extend .material-icons;
+
+          content:'\E8B6';
+          position: absolute;
+          top: .25rem;
+          right: .25rem;
+          display: block;
+          color: $text;
+          font-size:1.5rem;
+          margin-right:0.5rem;
+          margin-left:0.5rem;
+        }
+
+        input {
+          margin: 0 .5rem 0 .25rem;
+          width: 18rem;
+          padding: .25rem 2rem .25rem .25rem;
+          font-size: .75rem;
+        }
+      }
+    }
+  }
+
+  #product-notifications-table {
+    thead {
+      background-color: $navy;
+      color: $white;
+    }
+
+    th {
+      text-align: center;
+      vertical-align: middle;
+      font-size: .85rem;
+      font-weight: normal;
+    }
+
+    .file-notification-number {
+      font-size: 0.65rem;
+    }
+
+    .affected-products {
+      list-style: none;
+       li {
+         display: inline-block;
+         &:after {
+           content: ",";
+         }
+       }
+    }
+  }
+}
+
+.iso-certificate-container {
+
+  ul {
+    display: table;
+    border-spacing: 0.5rem 1rem;
+    list-style: none;
+    text-align: left;
+
+    li {
+      display: table-row;
+
+      & > span, a {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+}

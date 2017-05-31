@@ -1,0 +1,164 @@
+.stock-label {
+  color: $dark-grey;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: .5rem;
+  @include breakpoint(mdmin) {
+    font-size: .8rem;
+  }
+}
+.choose-location-or-type {
+  @include displayflex;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  .choose-location,
+  .choose-type {
+    display: inline-block;
+    text-align: left;
+    .radio-box {
+      text-align: left !important;
+      label {
+        color: $blue;
+        font-size: 16/12 + 0rem;
+        text-align: left;
+        @include breakpoint(mdmin) {
+          font-size: 0.8rem;
+        }
+        .radio-btn {
+          border: 0.15rem solid $white;
+          height: 0.7rem;
+          vertical-align: baseline;
+          width: 0.7rem;
+          border-radius: 50%;
+          box-shadow: 0 0 0 0.0625rem $light-grey;
+          cursor: pointer;
+          display: inline-block;
+          margin: 0 0.5rem 0 0;
+        }
+      }
+    }
+  }
+  .choose-location {
+    margin-right: 5rem;
+  }
+}
+
+.part-box {
+  padding-bottom: 0.9375rem;
+  .part-number-inputs {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    .input-group {
+      width: 5rem;
+      margin: 0 .3rem;
+      input {
+        border-radius: 0;
+        padding: 4/16 + 0rem 12/16 + 0rem;
+        @include breakpoint(mdmin) {
+          padding: 8/16 + 0rem 12/16 + 0rem;
+        }
+        @include breakpoint(xl) {
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+  .search-text {
+    padding-bottom: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    @include breakpoint(mdmin) {
+      font-size: .8rem;
+    }
+  }
+  .error-msg {
+    color: $red;
+    display: none;
+    font-size: 0.75rem;
+  }
+  #error1 {
+    margin-top: 1rem !important;
+  }
+  .result-links {
+    display: block;
+    padding: 0 .7rem;
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+}
+
+.stock-check-result {
+  @extend .tabStyles;
+  .nav.nav-tabs {
+    margin-left: 0;
+    > li {
+      margin-left: 0;
+      > a {
+        font-size: 1rem;
+        background-color: $off-white !important;
+        color: $grey;
+      }
+      &.active {
+        > a {
+          font-size: 1rem;
+          background-color: $light-grey !important;
+          color: $navy;
+        }
+      }
+    }
+  }
+}
+.part-results {
+  width: 100%;
+  border:0.0625rem solid $light-grey;
+  margin-top: 0.625rem;
+  tr th {
+    @include backgroundGradient($navy, $dark-blue);
+    text-align: center;
+    color: $white;
+    font-family: $heading;
+    font-weight: normal;
+  }
+}
+
+.result-headers li {
+  display: inline;
+  padding: 0.125rem 0.9375rem;
+  a {
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+}
+
+.part-results tr td .distributorButton {
+  text-align: left !important;
+}
+
+#distributorContact, #distributorInfo {
+  width: 100%;
+  text-align: left;
+  border:0.0625rem solid $light-grey;
+}
+
+//Bootstrap table overrides
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: $white;
+}
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: $off-white;
+}
+.table>tbody>tr>td {
+  vertical-align: middle;
+}
+#search{
+  margin-left: 0.3125rem;
+  margin-top: -0.0625rem;
+}

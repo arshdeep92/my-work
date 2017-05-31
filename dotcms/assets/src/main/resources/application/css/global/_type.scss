@@ -1,0 +1,114 @@
+/* -------------------------------------
+   TYPEKIT SET-UP
+------------------------------------- */
+
+html.wf-inactive header, html.wf-inactive footer, html.wf-inactive details, html.wf-inactive figcaption, html.wf-inactive main, html.wf-inactive h1, html.wf-inactive h2, html.wf-inactive h3, html.wf-inactive h4, html.wf-inactive h5, html.wf-inactive h6, html.wf-inactive p, html.wf-inactive blockquote, html.wf-inactive dfn, html.wf-inactive mark, html.wf-inactive pre, html.wf-inactive code, html.wf-inactive kbd, html.wf-inactive samp, html.wf-inactive q, html.wf-inactive sub, html.wf-inactive sup, html.wf-inactive li, html.wf-inactive a, html.wf-inactive span, html.wf-inactive td, html.wf-inactive th, html.wf-inactive legend, html.wf-inactive label, html.wf-inactive button, html.wf-inactive input, html.wf-inactive select, html.wf-inactive textarea, html.wf-inactive small, html.wf-inactive strong, html.wf-inactive img, html.wf-active header, html.wf-active footer, html.wf-active details, html.wf-active figcaption, html.wf-active main, html.wf-active h1, html.wf-active h2, html.wf-active h3, html.wf-active h4, html.wf-active h5, html.wf-active h6, html.wf-active p, html.wf-active blockquote, html.wf-active dfn, html.wf-active mark, html.wf-active pre, html.wf-active code, html.wf-active kbd, html.wf-active samp, html.wf-active q, html.wf-active sub, html.wf-active sup, html.wf-active li, html.wf-active a, html.wf-active span, html.wf-active td, html.wf-active th, html.wf-active legend, html.wf-active label, html.wf-active button, html.wf-active input, html.wf-active select, html.wf-active textarea, html.wf-active small, html.wf-active strong, html.wf-active img {visibility:visible}
+
+/* -------------------------------------
+   ICONS
+------------------------------------- */
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* -------------------------------------
+   LABELS & HELPERS
+------------------------------------- */
+
+.helper {
+	font-family: $heading;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 2px;
+	line-height: 1.33333;
+	text-transform: uppercase;
+	@include dsk {
+		font-size: 0.625rem;
+		line-height: 1.2;
+	}
+}
+
+
+/* -------------------------------------
+   HEADINGS
+------------------------------------- */
+
+.heading {
+  font-weight: 700;
+  margin: 0;
+  padding: 0.25rem 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+h1, .h1 {
+  @extend .heading;
+  color: $black;
+  font-family: $heading;
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 0;
+  top: 0px;
+  &:first-child {
+    margin-top: 0;
+  }
+  @include tab {
+    margin-bottom: 1.5rem;
+    top: -1px;
+  }
+}
+
+h2, .h2 {
+  @extend .heading;
+  color: $black;
+  font-family: $sans;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  top: 1px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h3, .h3 {
+  @extend .heading;
+  color: $text;
+  font-family: $sans;
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+  line-height: 1.11111;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  //text-transform: uppercase;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  @extend .heading;
+  color: $text;
+  font-family: $sans;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  margin-top: 1.25rem;
+  top: -1px;
+}
+

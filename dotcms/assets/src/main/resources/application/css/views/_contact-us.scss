@@ -1,0 +1,513 @@
+.contact-us-template,
+.contact-us-distributors-template,
+.contact-representatives-template{
+  main {
+    padding-top: 0;
+  }
+}
+.select-label {
+  display: inline-block;
+  color: $dark-grey;
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-align: left;
+  text-transform: uppercase;
+  @include mob {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+  }
+}
+
+.lookup-form-container {
+  position: relative;
+  background-color: $off-white;
+  padding-top: 3rem;
+}
+
+.lookup-form {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-us-dropdowns-container {
+  padding: 1rem 0;
+}
+
+.contact-us-dropdowns {
+  @include mob {
+    @include displayflex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+  .select-label {
+    display: block;
+  }
+}
+
+.btn-lookup {
+  position: absolute;
+  bottom: -.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#brandbg,
+#groupbg,
+#subbrandbg {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.05rem;
+  position: relative;
+  margin-right: 1rem;
+  background-position: 98% 60%;
+  background-repeat: no-repeat !important;
+  background-size: 0.7rem 0.55rem !important;
+  @include mob {
+    display: block;
+    width: 80%;
+    margin: 0 auto 1rem;
+  }
+  select {
+    @include mob {
+      width: 100%;
+      padding: .5rem;
+    }
+  }
+  .select2-container {
+    vertical-align: inherit;
+  }
+}
+
+#subbrandbg {
+  display: none;
+  select {
+    display: block;
+  }
+}
+
+#resetFields {
+  display: none;
+  font-size: 0.7rem;
+  float: right;
+}
+
+.select2-container .select2-choice {
+  .select2-arrow b {
+    background: rgba(0, 0, 0, 0) url("../../images/drop_down_arrow.png") no-repeat scroll 0 0.05rem !important;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-size: 0.65rem 0.4rem !important;
+    background-position: 0.1rem 0.4rem !important;
+    opacity: 0.7;
+    padding: 0.05rem 0 0 0.25rem;
+  }
+  padding: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 8.5rem 0 0.55rem !important;
+  background-image: none;
+  background-color: transparent !important;
+  line-height: 2;
+}
+
+/*Contactus page styling added by Vijay on 02-09-2016*/
+.select2-container .select2-choice {
+  background-color: #ffffff !important;
+  border: 0.05rem solid $grey !important;
+  border-radius: 0.2rem !important !important;
+  color: $grey !important;
+  font-size: 0.85rem !important;
+  margin: 0.25rem 0.25rem 0.25rem 0 !important;
+  .select2-arrow {
+    background: transparent !important;
+    border-left: 0.05rem solid $smoke;
+    border-radius: 0 0.2rem 0.2rem 0;
+    display: inline-block;
+    height: 73% !important;
+    position: absolute;
+    right: 0;
+    top: 0.25rem !important;
+    width: 1.55rem !important;
+  }
+}
+
+.select2-container .select2-choice > .select2-chosen {
+  font-style:normal;
+}
+
+.select2-container .select2-choice .select2-arrow {
+  padding: 0.05rem 0 0 0.25rem;
+}
+
+.select2-results {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#select2-drop {
+  bottom: 6.7rem;
+  display: block;
+  left: 23.8rem;
+  top: auto;
+  border: 0.05rem solid $grey;
+}
+
+.select2-search {
+  padding: 0 !important;
+}
+
+.select2-drop.select2-drop-above .select2-search input {
+  margin-top: 0 !important;
+}
+
+.select2-choice > .select2-chosen {
+  float: left !important;
+}
+
+#intro .btn {
+  font-size: 0.9rem !important;
+  margin-top: 1.75rem;
+  padding: 0.3rem 1.8rem;
+}
+
+.contact-us-instruct-message {
+  color: $navy;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0 auto;
+}
+
+.contact-us-message {
+  color: $grey;
+  font-size: 0.75rem;
+  margin-top: 2rem;
+  strong {
+    color: $dark-grey;
+  }
+  &.error {
+    color: red;
+  }
+}
+
+.control-label {
+  @extend .select-label;
+  display: block;
+}
+
+.check-boxes {
+  margin-bottom: 1.5rem;
+  margin-left: -.75rem;
+  legend {
+    padding-left: 0.75rem;
+  }
+  label {
+    display: block;
+    margin-bottom: .5rem;
+    color: $navy;
+    font-size: 0.85rem;
+    font-weight: normal;
+    text-align: left;
+    text-transform: capitalize;
+    @include mob {
+      font-size: 1rem;
+    }
+    input {
+      border: 0.05rem solid $light-grey;
+      border-radius: 0.2rem;
+      box-shadow: 0 0.05rem 0.05rem $light-grey;
+    }
+  }
+}
+
+#send-email {
+  margin-top: .5rem;
+  float: left;
+  @include mob {
+    float: none;
+  }
+}
+#formMsg{
+  color: $red;
+  font-size: 0.75rem;
+  margin-top: 1.9rem;
+  .contact-us-message span {
+    color: $grey;
+    b {
+      color: $red !important;
+    }
+  }
+}
+
+.result-container{
+  display: none;
+  margin: 2rem auto 0;
+  width: 65%;
+  @include mob {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  table {
+    width: 100%;
+  }
+  .lookup-result-table,
+  .contactCards{
+    width: 100%;
+    text-align: left;
+    font-size: .9rem;
+    margin-top: 0.5625rem;
+    margin-bottom: 1rem;
+    td {
+      vertical-align: middle;
+      border: none;
+    }
+    .border-dashed {
+      border-bottom: 1px dashed $light-grey;
+      line-height: 1;
+    }
+    .border-solid {
+      border-bottom: 1px solid $light-grey;
+      line-height: 1;
+    }
+    .table-row td {
+      width: 33%;
+      vertical-align: middle;
+      border: none;
+    }
+    b {
+      color: $blue;
+    }
+    .top-row-padding {
+      padding-top: 10px;
+    }
+    tbody tr {
+      padding: 0;
+    }
+    .disty-logo {
+      padding: 0;
+      height: 50/16 + 0rem;
+    }
+  }
+}
+
+.contact-cards-container,
+.contact-us-form{
+  padding: 0;
+}
+
+.contact-us-header-text {
+  color: $navy;
+  font-family: $heading;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: none;
+  i {
+    vertical-align: bottom;
+    margin-right: .25rem;
+    font-size: inherit;
+  }
+}
+
+.contact-name {
+  color: $blue;
+  font-weight: 800;
+
+}
+.contactCardsReps {
+  border-bottom: 0.01rem dashed $light-grey !important;
+  margin-bottom: 0 !important;
+  text-align: left;
+  font-size: .9rem;
+  .table-row td {
+    padding: 0.625rem 0 0.625rem 0;
+    border: none;
+    div {
+      background-color: $light-grey;
+      width: 100%;
+      height: 6rem;
+    }
+    b {
+      color: $blue;
+    }
+  }
+}
+
+
+
+.contactCardsReps-header {
+  border-bottom: 0.01rem solid $light-grey !important;
+  margin-bottom: 0.625rem !important;
+  text-align: left;
+  font-size: .9rem;
+  margin: 0 auto;
+  padding-bottom: 0.625rem;
+  width: 10%;
+}
+
+.rep-pagination {
+  list-style: none;
+  margin-top: 0.625rem;
+}
+
+.rep-pagination > li {
+  display: inline;
+}
+
+.rep-pagination > li > a, .rep-pagination > li > span {
+  border-radius: 50% !important;
+  margin: 0.125rem;
+}
+
+.rep-pagination > li > a, .rep-pagination > li > span {
+  background-color: $smoke;
+  border: 0.0625rem solid $light-grey;
+  color: $text;
+  float: left;
+  line-height: 1.3;
+  padding: 0.0625rem 0.5rem;
+  position: relative;
+  text-decoration: none;
+}
+
+.rep-pagination > .active > a, .rep-pagination > .active > span, .rep-pagination > .active > a:hover, .rep-pagination > .active > span:hover, .rep-pagination > .active > a:focus, .rep-pagination > .active > span:focus {
+  background-color: $navy;
+
+  color: $white;
+  cursor: default;
+  z-index: 2;
+}
+
+.btn-reset-form {
+  display: block;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+
+#contactCardsContainer .table-row td {
+  width: auto !important;
+}
+
+#contactCardsHeader, #contactCardsHeaderReps {
+  width: 100%;
+}
+
+#contactCards .col-cards {
+  padding: 0 !important;
+  margin-top: 10px;
+}
+
+#contactCardsContainer .reps-card tr td {
+  border-bottom: 0.0625rem dashed $light-grey;
+  padding-bottom: 20px;
+}
+
+#contactCardsContainer .reps-card tr:nth-last-child(1) td {
+  border-bottom: 1px solid $light-grey;
+}
+
+// Link area at bottom of page to get to other contact us pages
+#otherContactUsPages {
+  margin: 3rem auto;
+  width: 50%;
+  @include mob {
+    width: auto;
+  }
+  > div {
+    &:first-of-type {
+      border-right: 0.05rem solid $light-grey;
+    }
+  }
+  a {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.contact-us-image {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto;
+  background: $navy;
+  -moz-border-radius: 1.75rem;
+  -webkit-border-radius: 1.75rem;
+  border-radius: 1.75rem;
+  padding: 0.5rem;
+  img {
+    background: none;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.contact-us-select-label {
+  @extend .select-label;
+  text-transform: none;
+  display: block;
+  width: 100%;
+  margin-top: .5rem;
+  text-align: center;
+}
+
+//Labels for mobile
+.filter-labels-container {
+  display: none;
+  text-align: left;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background-color: $off-white;
+  @include mob {
+    align-items: center;
+    padding: 0 1.75rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .filter-labels {
+    padding: .5rem 0 1rem;
+    @include displayflex;
+    align-items: center;
+    flex-wrap: wrap;
+    .label {
+      font-size: .9rem;
+      font-weight: normal;
+      margin-right: .5rem;
+      margin-top: .5rem;
+      padding: .5rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+  .edit-filters {
+    margin-left: auto;
+  }
+
+}
+
+/* Contactus forms style added by Vijay*/
+
+.contactus-form-iframe{
+  width:100%;
+  height:240rem;
+  @include mob {
+  height:410rem;
+}
+  @include tab {
+    height:300rem;
+  }
+  }
+
+

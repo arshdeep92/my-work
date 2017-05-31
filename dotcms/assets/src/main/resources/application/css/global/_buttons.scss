@@ -1,0 +1,186 @@
+.belfuse-btn-group {
+  display: inline-block;
+
+  .btn-primary {
+    background-color: $white;
+    color: $dark-grey;
+    border: 1px solid $grey;
+    font-size: .65rem;
+
+    [type="radio"], [type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+    }
+
+    &.active {
+      background-color: $grey;
+      color: $navy;
+      font-weight: 500;
+    }
+
+    &[disabled]:hover {
+      color: $white;
+    }
+  }
+
+  &.multiselect-btn-group {
+    .btn-primary {
+      background-color: $white;
+      color: $grey;
+      border: 1px solid $grey;
+      border-radius: 4px !important;
+      margin: 0.25rem 0.25rem 0.25rem 0 ;
+
+      &.active {
+        background-color: $grey;
+        color: $navy;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// TO Be used together with the Bootstrap btn class.
+.bf-btn-solid-green {
+  background-color: $green;
+  color:$white;
+  &:hover {
+    color:$white;
+    background-color: $dark-green;
+  }
+  &:focus {
+    color:$white;
+    background-color: $dark-green;
+  }
+}
+
+/*--------------------------
+   Tabs Styling
+----------------------------*/
+.nav.nav-tabs.full-width-tabs {
+  margin-top:1.5rem;
+  border-bottom:none;
+  @include displayflex;
+  flex-direction: row;
+  align-content: stretch;
+  li {
+    flex: 1 1 auto;
+
+    //Overriding styles in nav.scss
+    margin-bottom:0;
+    a {
+
+      //Overriding styles in nav.scss
+      border-bottom: 0 !important;
+      border-radius: 0;
+      background-color: $smoke;
+      color:$text;
+
+      &:hover {
+        //Need !important to override setting in _scaffolding.scss
+        outline: 1px solid $navy !important;
+        outline-offset: -2px;
+        color: $navy;
+      }
+    }
+
+    &.active a {
+      background-color: $navy;
+      color:$white;
+    }
+  }
+}
+//Tab Styling
+.tabStyles {
+  .nav.nav-tabs {
+    margin-left: 35%;
+    border-bottom: 0;
+    @include mob {
+      margin-top: 2rem;
+      margin-left: 2rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    > li {
+      margin-bottom: 0;
+      @include mob {
+        white-space: nowrap;
+        float: none;
+        display: inline-block;
+        margin-left: -4px;
+      }
+      > a {
+        margin-right: 0.25rem;
+        border-radius: 0;
+        border: none;
+        background-color: $light-grey;
+        font-family: $heading;
+        font-size: .6rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: $navy;
+        text-transform: uppercase;
+      }
+
+      &.active {
+        > a,
+        > a:hover {
+          background-color: $white;
+          border: none;
+        }
+      }
+    }
+    > li#contact-us-tab > a {
+      background-color: $navy;
+      color: $white;
+    }
+  }
+}
+.btn {
+  font-size: inherit;
+}
+
+.btn-bf-hollow-blue {
+  color: $blue;
+  background-color: $white;
+  border-color: $blue;
+
+  &:hover {
+    color: $white;
+    background-color: $blue;
+    border-color: $blue;
+  }
+}
+
+.btn-bf-hollow-green {
+  color: $green;
+  background-color: $white;
+  border-color: $green;
+
+  &:hover {
+    color: $white;
+    background-color: $green;
+    border-color: $green;
+  }
+}
+
+// Default BelFuse Button
+.bf-btn-primary {
+  @extend .btn-primary;
+  font-size: 0.9rem;
+  background-color: $green;
+  padding: 0.4rem 1.9rem;
+  -webkit-box-shadow: -0.05rem 0.3rem 0.1rem 0.4rem rgba(69, 126, 18, 1);
+  -moz-box-shadow: -0.05rem 0.3rem 0.1rem 0.4rem rgba(69, 126, 18, 1);
+  border: 0.1rem solid $dark-blue;
+  box-shadow: 0 0.1rem 0 0 rgba(69, 126, 18, 1);
+  text-transform: uppercase;
+  color: $white;
+  @include mob {
+    margin-top: 0;
+  }
+}
+

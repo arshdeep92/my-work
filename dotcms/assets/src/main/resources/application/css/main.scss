@@ -1,0 +1,40 @@
+//$icon-font-path: "../fonts/";
+
+// Main scss styles
+@import 'global/variables';
+@import 'global/mixins';
+@import 'global/scaffolding';
+@import 'global/type';
+@import 'global/animations';
+@import 'global/global'; //header/navigation, footer, contact
+@import 'global/load-spinner';
+@import "../../../../../node_modules/select2-browserify/select2/select2";
+@import 'global/feature-item';
+@import 'global/grid-additions';
+@import 'global/quick-links';
+@import 'global/carousel';
+@import 'global/landing-headers';
+@import 'global/buttons';
+
+@import 'views/home';
+@import 'views/news';
+@import 'views/contact-us';
+@import 'views/product-listing';
+@import 'views/product-details';
+@import 'views/landing-pages';
+@import 'views/search-results';
+@import 'views/orphan-pages';
+@import 'global/about-us';
+@import 'global/locations';
+@import 'views/resource-center';
+@import 'views/quality-and-environment';
+@import 'views/stock-check';
+@import 'views/tiled-landing';
+@import 'views/animate';
+@import 'views/competitors-cross-reference';
+@import 'views/contact-bel-template';
+@import 'views/gsd';
+@import 'views/tech-help';
+@import 'views/bootstrap-typeahead';
+@import 'views/foxy_cart';
+@import 'views/assembly-instructions';

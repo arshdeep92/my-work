@@ -1,0 +1,179 @@
+/* -------------------------------------
+   SOME BASIC RESETS
+------------------------------------- */
+
+a,abbr,acronym,address,applet,article,aside,audio,big,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,embed,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,ul,var,video {border:0 none;margin:0;padding:0;vertical-align:baseline}
+
+
+/* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
+
+html {
+	&, > body {
+    	margin: 0;
+		height: 100%;
+    	font-size: $font-size-mob !important;
+		@include wkimo-prop(text-size-adjust, $font-size-mob);
+		min-width: $tiny-breakpoint;
+		@include tab {
+			font-size: $font-size-tab !important;
+			@include wkimo-prop(text-size-adjust, $font-size-tab);
+		}
+		@include lrg {
+			font-size: $font-size-lrg !important;
+			@include wkimo-prop(text-size-adjust, $font-size-lrg);
+		}
+	}
+	body {
+	    text-align: left;
+	    overflow-x: hidden !important;
+	    overflow-y: visible;
+	    color: $text;
+	}
+}
+
+html, body, input, select, textarea {
+    font-family: $sans;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+a, a:visited, a:focus, a:active, a:hover{
+  outline:0 none !important;
+}
+
+svg {
+    border: 0 none;
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+//header, .wrapper, footer {
+.wrapper, footer {
+  min-width: $tiny-breakpoint;
+  padding: 0;
+
+  @include tab {
+    min-width: $tab-breakpoint;
+  }
+
+  @include dsk {
+    min-width: $dsk-breakpoint;
+  }
+
+  @include lrg {
+    min-width: $lrg-breakpoint;
+  }
+}
+
+.wrapper {
+  background: #ffffff;
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  padding-bottom: 0;
+  padding-top: 0;
+  text-align: center;
+  position: relative;
+
+  @include dsk {
+    padding-top: 4rem;
+  }
+}
+
+
+.section, section, main {
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  position: relative;
+
+  @include dsk {
+    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+  }
+}
+
+.section,
+.wrapper > section,
+.wrapper > main,
+.wrapper > article > section,
+footer {
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  position: relative;
+
+  @include dsk {
+      padding-bottom: 3rem;
+      margin-left: 7.9rem;
+  }
+}
+
+
+.container {
+  display: block;
+  margin-right: auto;
+  overflow: hidden;
+
+  @include tab {
+    max-width: 62.5rem;
+  }
+  @include dsk {
+    max-width: 61.6rem;
+  }
+}
+
+.container-fluid {
+  padding-left:0;
+  padding-right:0;
+}
+
+/* Testing purposes */
+.show-grid [class^=col-] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}
+#bel-logo{
+  cursor: pointer!important;
+}
+.bel-logo{
+  background-color: #0085CA;
+  display: block;
+  position: relative;
+  // pointer-events: none;
+  cursor: pointer;
+
+  @media only screen
+  and (min-device-width: $tab-breakpoint)
+  and (max-device-width: $dsk-breakpoint - 1)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    padding: 0;
+    height: auto;
+    width: auto !important;
+  }
+}
+
+section {
+  .section-aside-header {
+    text-align: left;
+    color: $dark-grey;
+    font-family: $heading;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+  }
+}
+
+li[id^="page="].hidden { visibility: hidden; }
+li[id^="page="].collapse { height: 0; margin: 0; padding: 0; }

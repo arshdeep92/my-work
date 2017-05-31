@@ -1,0 +1,69 @@
+
+.locations-page-template {
+
+  margin:0.6rem 0 0 2.5rem;
+
+  .nav-tabs {
+    margin-bottom:0.6rem;
+    margin-right: 2rem;
+    border-bottom: 0.18rem solid #ddd;
+  }
+
+  .nav > li > a {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 0 3rem 0 0;
+    position: relative;
+  }
+
+  .nav-tabs>li.active>a,.nav-tabs>.nav-tabs{
+    color:$black;
+    background-color:transparent!important;
+    border: none!important;
+  }
+
+  .nav li a:hover{
+    color: $text!important;
+    background-color: $white!important;
+    border-color: $white!important;
+    font-size: 1.6rem;
+  }
+
+  .hr-line{
+    border-style: solid none none!important;
+    border-width: 0.18rem 0 0!important;
+    margin-bottom: 0.6rem!important;
+    margin-top: 0.6rem!important;
+    margin-right: 1.72rem;
+  }
+
+  .glyp-icon {
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    position: relative;
+    top: 1px;
+    font-size:0.9rem;
+  }
+
+  .contact-card{
+    margin-top: 1.5rem;
+    text-align:left;
+  }
+
+  .contact-details{
+    padding-top: 0.12rem;
+  }
+
+  .address{
+    color:$black;
+  }
+
+  .color{
+    color:$black;
+  }
+
+}

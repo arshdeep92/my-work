@@ -1,0 +1,36 @@
+//
+// Footer
+// --------------------------------------------------
+
+footer {
+
+  .small-footer {
+    padding:10px;
+    padding-bottom: 0rem;
+    bottom: 0px;
+    position: fixed;
+    right:0px;
+    @include displayflex;
+    background-color:$white;
+    padding-top:0px;
+    border-color: $smoke;
+    border-width: 1.5px;
+    border-style: solid;
+  }
+
+  .footer-links {
+    font-size: 0.75rem;
+    font-weight: 200;
+    max-width: 15rem;
+    float: left;
+    list-style: none;
+  }
+
+  .footer-text {
+    font-size: 0.75rem;
+    font-weight: 200;
+    text-align: center;
+    margin-left: 0.5rem;
+  }
+
+}

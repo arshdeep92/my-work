@@ -1,0 +1,30 @@
+.orphan-page-template {
+
+  font-family: $sans;
+
+  .landing-page-background {
+    &.background-image {
+      @include displayflex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-size: auto;
+      min-height: 25rem;
+      overflow: hidden;
+      width: 100%;
+      .image-container,
+      .text-container {
+        padding: 0 4rem;
+        @include mob {
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+
+  .landing-page-text {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,148 @@
+.cross-ref-intro-text > p{
+  text-align: left;
+  color: #5f5e60;
+  font-size: 0.7rem;
+  font-weight: 300;
+  padding: 22px 18px;
+
+}
+#crossReferenceContainer nav > li > a:hover, nav > li > a:focus, .nav > li > a:hover, .nav > li > a:focus{
+  color:$grey;
+  @include mob {
+    padding:7px 5px;
+  }
+}
+#crossReferenceContainer .nav > li > a{
+  @include mob {
+    padding:7px 5px!important;
+  }
+}
+#cross-reference, #cross-reference-byparts{
+  font-size: 0.8rem;
+  width: 90%;
+  margin-top: 1.875rem;
+  border-bottom: 0.05rem solid $light-grey;
+  .align-left{
+    text-align: left!important;
+  }
+
+}
+.select2-results .select2-result-label{
+  font-size: 0.7rem!important;
+}
+
+.cross-ref-box{
+  margin: 0 auto;
+}
+.check-boxes .cross-ref-checkbox{
+  margin-right: 0.625rem;
+
+}
+
+.cross-ref-box .pno-text{
+  padding-left: 0!important;
+}
+.cross-ref-box .cross-ref-input-groups{
+  padding-left: 12%!important;
+}
+
+#cross-ref-result-byparts{
+  clear: both;
+  padding-top: 0.625rem;
+}
+
+#crossReference #error-tab-1{
+  display: none;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: $red;
+}
+#bypartnumbers #error-tab-2{
+  clear: both;
+  display: none;
+  padding-top: 1.25rem;
+  font-size: 0.8rem;
+  color: $red;
+}
+.select2-choice > .select2-chosen{
+  font-size: 0.7rem!important;
+}
+#btnCompetitorSearch{
+  margin-top: 20px;
+}
+#crossReference .select2-container .select2-choice{
+  line-height: 2.4;
+}
+#bycompetitors #groupbg{
+  width: 234px;
+  margin-right: 0!important;
+  @include mob {
+    margin-left:4rem;
+  }
+}
+#cross-reference{
+  display: none;
+  margin: 3rem auto;
+  border:1px solid #ddd
+}
+#cross-reference-byparts{
+    display: none;
+    margin: 5rem auto;
+  }
+#cross-reference > thead > tr th{
+  background: #0085CA !important;
+  background-color: #0085CA !important;
+  line-height: 21px!important;
+  font-size: 0.85rem!important;
+  color: #fff!important;
+  text-align: center!important;
+  font-weight: normal!important;
+
+}
+#cross-reference-byparts > thead > tr th{
+  background: #0085CA !important;
+  background-color: #0085CA !important;
+  line-height: 21px!important;
+  font-size: 0.85rem!important;
+  color: #fff!important;
+  text-align: center!important;
+  font-weight: normal!important;
+
+}
+#cross-reference, #cross-reference-byparts tr > td{
+  font-weight: normal!important;
+  font-size: 0.85rem;
+  color: $text;
+  .color-blue{
+    color:$blue;
+  }
+  @include mob {
+    .btn-green {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+#bypartno{
+  height: 1.9rem;
+  font-size: 0.8rem;
+  @include mob {
+    padding: 2px 4px;
+  }
+}
+#btnCompetitorSearch-byparts{
+  float: left;
+  margin-left: -1.1rem;
+  @include mob {
+    margin-left: -0.5rem;
+  }
+}
+#alldata, #all-data{
+  .btn-green {
+    font-size: 0.67rem;
+    padding: 0.3rem;
+  }
+  .btn-blue {
+    font-size: 0.67rem;
+    padding: 0.3rem;
+  }
+}

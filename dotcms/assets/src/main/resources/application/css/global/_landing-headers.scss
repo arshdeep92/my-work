@@ -1,0 +1,19 @@
+.landing-page-header {
+
+  .landing-page-background.background-image {
+    padding: 2rem 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: $navy;
+    font-family: $heading;
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.11;
+  }
+}
