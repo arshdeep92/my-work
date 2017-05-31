@@ -1,0 +1,106 @@
+#!/usr/bin/env groovy
+
+node {
+
+    echo cleanWorkSpace
+    if (cleanWorkSpace == "true") {
+        deleteDir()
+        sh 'ls -lah'
+    }
+
+    try {
+
+        // Mark the code checkout 'stage'....
+        stage('Checkout') {
+
+            // Get some code from repository
+            try {
+                echo useCustomBranch
+                echo customBranchName
+
+                if (useCustomBranch == "true") {
+                    if (customBranchName != "") {
+                        git branch: customBranchName, credentialsId: 'gitRepoCredentials', url: 'git@github.com:Bel-Inc/Bel-Fuse-DotCMS.git'
+                    } else {
+                        echo "No branch name specified. Using 'checkout scm'."
+                        checkout scm
+                    }
+                } else {
+                    checkout scm
+                }
+
+            } catch (err) {
+                echo "Build branches not set, using standard 'checkout scm' ..."
+                checkout scm
+            }
+        }
+
+        stage ('NPM Install') {
+            gradle 'dotcms:assets:npmInstall'
+        }
+
+        stage ('Build Assets') {
+            gradle 'dotcms:assets:build'
+        }
+
+
+        withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: 'dotCMSCredentials',
+                          usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+            stage('Send Assets') {
+                gradle 'dotcms:assets:send-everything -Pwebdav_user=$USERNAME -Pwebdav_password=$PASSWORD -Pwebdav_host=$webdav_host -Pwebdav_port=$webdav_port -Pwebdav_protocol=$webdav_protocol'
+            }
+//Commenting out the code to disable building the dynamic plugins. The update from DotCMS 3.6.1 to DotCMS 4.0.01 has caused an issue.
+//The old DotCMS 3.6.1 was compatible with the deployOverHTTP build script. The new DotCMS 4.0.1 is not.
+//This script will have to be re-written. Until then, you will have to deploy your plugin to DotCMS 4.0.1 manually, or
+//through a bundle or through push publishing. On you local machine you can use the 'deploy' option to deploy the plugin over SSH
+//to you local machine. The DotCMS cloud does not allow us to have SSH access so we cannot do this for our dev environment
+//            stage('Build and deploy Stock-Check plugin') {
+//                gradle 'dotcms:dynamic-plugins:stock-check:deployOverHTTP -Phost=$webdav_host -Pwebdav.user=$USERNAME -Pwebdav.password=$PASSWORD -Pwebdav.port=$webdav_port -Pwebdav.protocol=$webdav_protocol'
+//            }
+//            stage('Build and deploy Email plugin') {
+//                gradle 'dotcms:dynamic-plugins:email-form:deployOverHTTP -Phost=$webdav_host -Pwebdav.user=$USERNAME -Pwebdav.password=$PASSWORD -Pwebdav.port=$webdav_port -Pwebdav.protocol=$webdav_protocol'
+//            }
+//            stage('Build and deploy Utils plugin') {
+//                gradle 'dotcms:dynamic-plugins:utils:deployOverHTTP -Phost=$webdav_host -Pwebdav.user=$USERNAME -Pwebdav.password=$PASSWORD -Pwebdav.port=$webdav_port -Pwebdav.protocol=$webdav_protocol'
+//            }
+        }
+
+        stage('Style Guide Install') {
+            sshagent(credentials: ['styleGuideCredentials']) {
+                sh 'pwd'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "sudo mkdir -p /var/www/project"'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "sudo chmod 750 -R /var/www/project"'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "sudo chown $STYLE_GUIDE_USER:$STYLE_GUIDE_GROUP -R /var/www/project"'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "forever stopall"'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "rm -r /var/www/project/* || true"'
+                sh 'scp -o StrictHostKeyChecking=no -rp styleguide/* $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST:/var/www/project'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "cd /var/www/project/ && npm install"'
+                sh 'ssh -o StrictHostKeyChecking=no $STYLE_GUIDE_USER@$STYLE_GUIDE_HOST "cd /var/www/project/ && forever -w --watchDirectory \"/var/www/project/\" start app.js"'
+
+            }
+        }
+
+    } catch (err) {
+
+        // Send error to slack channel
+        slackSend channel: "#${env.slack_channel}",
+                color: 'bad',
+                message: "${err}",
+                teamDomain: "${env.slack_teamdomain}",
+                token: "${env.slack_token}"
+        throw err
+    }
+}
+
+void gradle(String tasks, String switches = null) {
+    String gradleCommand = "";
+    gradleCommand += './gradlew '
+    gradleCommand += tasks
+
+    if(switches != null) {
+        gradleCommand += ' '
+        gradleCommand += switches
+    }
+
+    sh gradleCommand.toString()
+}
