@@ -1,0 +1,38 @@
+/* ========================================================
+   Tables
+   ======================================================== */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    width: 100%;
+	/* @include mob-only {
+		margin-bottom: 0.4rem;
+    } */
+    tr {
+		th, td {
+		    border-bottom: 1px solid gray;
+		    line-height: 2.125rem;
+			/* @include mob-only {
+		    	line-height: 2rem;
+		    } */
+			&:first-child {
+			    padding-left: 0.5rem;
+				/* @include mob-only {
+					padding-left: 0.4rem;
+			    } */
+		    }
+			&:last-child {
+			    padding-right: 0.5rem;
+				/* @include mob-only {
+					padding-right: 0.4rem;
+			    } */
+			}
+		}
+    }
+	thead th, tbody tr:last-child td {
+		border-bottom: 1px solid black;
+	}
+}

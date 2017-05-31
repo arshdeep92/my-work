@@ -1,0 +1,101 @@
+/* ========================================================
+   SOME BASIC RESETS
+   ======================================================== */
+
+a,abbr,acronym,address,applet,article,aside,audio,big,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,embed,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,ul,var,video {border:0 none;margin:0;padding:0;vertical-align:baseline}
+
+h1, h2, h3, h4, h5, h6, header, .wrapper, #logo, .genbox, .gallery-icon, .thumbnail, .img-centre, .img-centre-w, .img-centre-h, li.gallery-item, fieldset, .fieldrow, label, .multiple label + span, .file-row label + span, input, select, button, .btn, button span, .btn span, footer, p + img, ul ul, ul ol, ol ol, ol ul, dl.section-list dt, dl.section-list dt.selected a, .custom, figure, img, iframe, embed, video {position:relative}
+
+dl.section-list dt, nav ul, .content, aside, .gallery-icon, .thumbnail, .img-centre, .img-centre-w, .img-centre-h, form, .fieldrow, footer, footer div, footer ul {overflow:hidden}
+
+* {@include wkimo(box-sizing, border-box);}
+
+.no-select {-webkit-touch-callout: none; @include wkimo(user-select, none);}
+
+/* ========================================================
+   HTML5 DISPLAY DEFINITIONS
+   ======================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {display:block}
+
+audio, canvas, video {display:inline-block;*display:inline;*zoom:1}
+
+audio:not([controls]) {display:none;height:0}
+
+[hidden] {display:none}
+
+
+/* ========================================================
+   BASE
+   ======================================================== */
+
+html {
+	/*&.wf-inactive, &.wf-active {
+		header, footer, details, figcaption, h1, h2, h3, h4, h5, h6, p, blockquote, dfn, mark, pre, code, kbd, samp, q, sub, sup, li, a, span, td, th, legend, label, button, input, select, textarea, small, strong, img {
+			visibility:visible;
+		}
+	} */
+	&, > body {
+    	margin: 0;
+		height: 100%;
+    	//font-size: 15px !important;
+		//@include wkimo(text-size-adjust, 15px);
+    	font-size: 16px !important;
+		@include wkimo(text-size-adjust, 16px);
+		min-width: 768px;
+		/* min-width: 320px;
+		@include tab {
+			font-size: 16px !important;
+			@include wkimo(text-size-adjust, 16px);
+		} */
+		@include med {
+			font-size: 20px !important;
+			@include wkimo(text-size-adjust, 20px);
+		}
+	}
+	body {
+	    text-align: left;
+	    color: $dark-grey;
+	}
+}
+
+html, body, input, select, textarea {
+    font-family: $sans;
+    line-height: 1.5rem;
+    font-weight: 500;
+	/* @include mob-only {
+    	line-height: 1.4rem;
+    } */
+}
+
+button {
+	&, * {
+	    font-family: $sans;
+	    font-weight: 400;
+    }
+}
+
+/* ========================================================
+   LINKS
+   ======================================================== */
+
+a {
+	color: $blue;
+	&, &:hover, &:active, &:focus { /* Addresses outline displayed oddly in Chrome */
+	    outline: medium none !important;
+		cursor: pointer;
+	}
+	
+	&:hover {
+		color: $navy;
+	}
+	
+	&:active {
+		color: $red;
+	}
+	h1 &, h2 &, h3 &, h4 &, h5 &, h6 & {
+	    color: inherit;
+	}	
+
+}
+

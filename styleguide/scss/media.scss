@@ -1,0 +1,81 @@
+/* ========================================================
+   IMAGES, FIGURES
+   ======================================================== */
+
+img,
+iframe,
+embed,
+video {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+	/* @include mob-only {
+		margin-bottom: 0.4rem;
+		margin-top: 0.4rem;
+    } */
+}
+
+iframe,
+embed,
+video {
+    min-width: 54%;
+}
+
+img {
+    border: 0; /* 1. Removes border when inside 'a' element in IE6/7/8/9, FF3 */
+    -ms-interpolation-mode: bicubic; /* 2. Improves image quality when scaled in IE7 */
+    height: auto;
+}
+
+figure { /* Addresses margin not present in IE6/7/8/9, S5, O11 */
+    margin: 0;
+    > .caption {
+		background: none repeat scroll 0 0 #000000;
+		border: 0.25rem solid #ffffff;
+		@include wkimo(border-radius, 1.13333em);
+		color: #ffffff;
+		font-size: 1rem;
+		font-style: italic;
+		height: 1.25rem;
+		line-height: 1.25rem;
+		opacity: 0.3;
+		outline: medium none;
+		position: absolute;
+		right: 0.5rem;
+		text-align: center;
+		text-decoration: none;
+		top: 0.5rem;
+		width: 1.25rem;
+		&:hover {
+			opacity: 1;
+		}
+		/* @include mob-only {
+			border: 0.4rem solid #ffffff;
+			height: 1.2rem;
+			line-height: 1.2rem;
+			right: 0.4rem;
+			top: 0.4rem;
+	    } */
+	}
+	figcaption {
+		@extend small;
+		/* @include mob-only {
+			font-size: 0.8rem;
+	    } */
+	}
+}
+
+/* ========================================================
+   SVGs
+   ======================================================== */
+
+svg {
+    border: 0 none;
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    &:not(:root) { /* Corrects overflow displayed oddly in IE9 */
+		overflow: hidden;
+	}
+}

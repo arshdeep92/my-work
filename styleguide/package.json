@@ -1,0 +1,14 @@
+{
+  "name": "Live_Style_Guide",
+  "version": "1.0.0",
+  "main":"app.js",
+  "author": "Steven Lawler",
+  "description":"Live style guide generator.",
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "express": "^4.13.4"
+  }
+}

@@ -1,0 +1,341 @@
+/* ========================================================
+   FORMS
+   ======================================================== */
+
+form { /* Corrects margin displayed oddly in IE6/7 */
+	margin: 0;
+}
+
+legend {
+	border: 0; /* 1. Corrects color not being inherited in IE6/7/8/9 */
+	padding: 0;
+	white-space: normal; /* 2. Corrects text not wrapping in FF3 */
+	*margin-left: -0.25rem; /* 3. Corrects alignment displayed oddly in IE6/7 */
+}
+
+fieldset { /* Define consistent border, margin, and padding */
+	border: none;
+	margin: 0;
+	padding-bottom: 0.5rem;
+	padding-top: 0;
+	/* @include mob-only {
+		padding-bottom: 0.4rem;
+	} */
+}
+
+.fieldrow {
+	clear: left;
+	display: block;
+	margin-bottom: 0.25rem;
+	min-height: 2.25rem;
+	overflow: hidden;
+	/* @include mob-only {
+		margin-bottom: 0.2rem;
+		min-height: 2.2rem;
+	} */
+	&.multi-select-row {
+		background: transparent;
+	}
+}
+
+label {
+    background: transparent none repeat scroll 0 0;
+    color: $blue-30;
+    display: block;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 300;
+    height: 2.5rem;
+    line-height: 1.5rem;
+    margin: 0;
+    padding: 0.5rem 0 0;
+    text-align: left;
+    text-transform: uppercase;
+	/* @include mob-only {
+		font-size: 0.6rem;
+		height: 2.4rem;
+		line-height: 1.2rem;
+		padding-top: 0.4rem;
+	} */
+	@include webkit {
+		line-height: 2rem;
+	}
+	&.for-boxes {
+		background-color: transparent;
+		display: inline-block;
+		float: none;
+		height: 1.25rem;
+		line-height: 1.25rem;
+		margin-top: 0.25rem;
+		min-width: 0;
+		padding-left: 0.25rem;
+		padding-right: 0.5rem;
+		top: 0.25rem;
+	}
+	.fieldrow.textarea & {
+		display: block;
+		float: none;
+		width: 98% !important;
+	}
+	.select-row &, .multi-select-row &, .radio-row &, .check-row & {
+		margin-right: 0px;
+	}
+}
+
+input, textarea, select, button {
+	font-size: 100%; /* 1. Corrects font size not being inherited in all browsers */
+	margin: 0; /* 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome */
+	vertical-align: baseline; /* 3. Improves appearance and consistency in all browsers */
+	*vertical-align: middle; /* 3. Improves appearance and consistency in all browsers */
+	&::-moz-focus-inner {
+		border: 0;  /* overrides extra padding in Firefox */
+		padding: 0;
+		margin: 0;
+		outline: none;
+	}
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+	color: $blue-30;
+	font-weight: normal;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: $blue-30;
+	opacity: 1;
+	font-weight: normal;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: $blue-30;
+	opacity: 1;
+	font-weight: normal;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: $blue-30;
+	font-weight: normal;
+}
+
+input {
+	-webkit-appearance: none;
+	@include wkimo(border-radius, 0);
+	margin: 0;
+	padding: 0;
+	line-height: normal; /* 1. Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet */
+	&[type=text], &[type=number], &[type=date], &[type=password], &[type=email] {
+		background-color: #ffffff;
+		border-color: $blue-30;
+		border-style: solid;
+		border-width: 1px;
+		box-shadow: none;
+		color: $navy;
+		display: block;
+		font-family: monospace,serif;
+		font-size: 0.875rem;
+		font-style: normal;
+		font-weight: normal;
+		height: 2rem;
+		line-height: 1.5rem;
+		margin: 0 !important;
+		outline: medium none;
+		padding: 0 0.5rem;
+		top: 0;
+		@include calc(width, "100% - 0.25rem");
+		&.active {
+			background-color: #fff;
+			border-color: $blue-70;
+		}
+	}
+	&[type=checkbox], &[type=radio] {
+		box-sizing: border-box; /* 1. Addresses box sizing set to content-box in IE8/9 */
+		padding: 0; /* 2. Removes excess padding in IE8/9 */
+		*height: 0.75rem; /* 3. Removes excess padding in IE7; excess padding remains in IE6 */
+		*width: 0.75rem; /* 3. Removes excess padding in IE7; excess padding remains in IE6 */
+		margin-left: 0.5rem !important;
+		top: 0.125rem;
+		vertical-align: middle;
+		z-index: 1;
+		@include webkit {
+			top: -1px;
+		}
+	}
+	&[type=file] {
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		z-index: 10;
+	}
+	&.fake-file {
+		position: absolute;
+		width: 78%;
+		z-index: 5;
+	}
+	&[type=submit], &[type=button] {
+		border:1px solid #222;
+		background-color: #DDD;
+		border-radius: 0.5rem;
+		padding: 1.25rem;
+	}
+	&[type=search] {
+		-webkit-appearance: textfield; /* 1. Addresses appearance set to searchfield in S5, Chrome */
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box; /* 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+		box-sizing: content-box;
+		&::-webkit-search-decoration, &::-webkit-search-cancel-button {
+			-webkit-appearance: none; /* Removes inner padding and search cancel button in S5, Chrome on OS X */
+		}
+	}
+}
+
+textarea {
+	-webkit-appearance: none;
+	@include wkimo(border-radius, 0);
+	overflow: auto; /* 1. Removes default vertical scrollbar in IE6/7/8/9 */
+	vertical-align: top; /* 2. Improves readability and alignment in all browsers */
+	background: url(assets/BG-textarea.png) repeat scroll left -2px #FFFFFF;
+	border: medium none;
+	color: black;
+	display: block;
+	font-size: 1rem;
+	font-style: italic;
+	line-height: 1.5rem;
+	margin: 0.125rem 0 0.25rem !important;
+	min-height: 10rem;
+	outline: 0.25rem solid #FFFFFF;
+	padding: 1px 0 0;
+	resize: none;
+	width: 81% !important;
+}
+
+/* ========================================================
+   SELECTS
+   ======================================================== */
+
+select {
+	color: black;
+	display: block;
+	font-size: 1rem;
+	font-style: italic;
+	height: 2rem !important;
+	line-height: 1rem !important;
+	margin: 0 !important;
+	padding-top: 0.25rem;
+	vertical-align: bottom;
+	width: 100%;
+	@include webkit {
+		font-size: 1rem;
+		top: 0.25rem;
+	}
+	option[disabled] {
+		text-decoration: line-through;
+	}
+}
+
+/* ========================================================
+   BUTTONS
+   ======================================================== */
+
+input[type=button], input[type=reset], input[type=submit] {
+	cursor: pointer; /* 1. Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: none; /* 2. Corrects inability to style clickable 'input' types in iOS */
+	*overflow: visible;  /* 3. Removes inner spacing in IE7 without affecting normal text inputs; inner spacing remains in IE6 */
+	background-color: $navy;
+	border: medium none;
+	-webkit-border-radius: -webkit-calc(0.25rem + 1px);
+	 -khtml-border-radius: -khtml-calc(0.25rem + 1px);
+	  -icab-border-radius: -icab-calc(0.25rem + 1px);
+	   -moz-border-radius: -moz-calc(0.25rem + 1px);
+		-ms-border-radius: -ms-calc(0.25rem + 1px);
+		 -o-border-radius: -o-calc(0.25rem + 1px);
+	border-radius: calc(0.25rem + 1px);
+	display: inline-block;
+	font-family: Helvetica,Arial,sans-serif;
+	height: 2.25rem;
+	overflow: visible;
+	padding: 1px 1px 0.25rem;
+	text-decoration: none;
+	-ms-touch-action:none;
+	touch-action:none;
+	&.btn-cancel {
+		background: transparent !important;
+	}
+	&:active {
+		background-color: $red;
+		padding: 1px;
+	}
+}
+
+button, .btn {
+	@extend input[type=button];
+	span {
+		background-color: $blue;
+		background-image: -webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			color-stop(0, $blue),
+			color-stop(1, $navy)
+		);
+		background-image: -o-linear-gradient(bottom, $blue 0%, $navy 100%);
+		background-image: -moz-linear-gradient(bottom, $blue 0%, $navy 100%);
+		background-image: -webkit-linear-gradient(bottom, $blue 0%, $navy 100%);
+		background-image: -ms-linear-gradient(bottom, $blue 0%, $navy 100%);
+		background-image: linear-gradient(to bottom, $blue 0%, $navy 100%);
+		color: $white;
+		@include wkimo(border-radius, 0.25rem);
+		display: block;
+		font-size: 1.25rem;
+		font-weight: 300;
+		height: 100%;
+		line-height: 1.8em;
+		padding: 0 0.75rem;
+		text-align: center;
+		text-transform: uppercase;
+		top: 0;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action:none;
+		touch-action:none;
+		@include webkit {
+			margin-top: -1px;
+		}
+	}
+	&:active span, span:active {
+		background-color: $red;
+		background-image: none;
+		padding-top: 1px;
+	}
+	&.btn-cancel {
+		span {
+			background: transparent none repeat scroll 0 0 !important;
+			color: #0a3641 !important;
+			text-decoration: underline !important;
+			text-shadow: none !important;
+		}
+		&:active span, span:active {
+			color: #002b36;
+		}
+	}
+}
+
+/* ========================================================
+   ERRORS & ALERTS
+   ======================================================== */
+
+.fieldrow.error {
+	input, textarea {
+		background-color: #f8d6d5;
+		outline: 0.25rem solid #f8d6d5;
+	}
+	label {
+		background-color: #eb8382;
+		color: #6f1817;
+	}
+}
+
+.fieldrow.disabled {
+	opacity: 0.25;
+}

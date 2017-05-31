@@ -1,0 +1,98 @@
+
+/*
+
+CodeID: c4a75718-c021-4067-9793-e4676b0ce9b3
+Title: Getting Started
+
+Description: You can update this style guide by editing the files that you use in this project directly. This script reads the comments in your files and creates this page based off them. All that you need to do is follow the comments structure, and include the files you want on this page in the settings file.
+
+EndCodeDescription
+
+CodeBegings: */
+
+The code will be automatically checked by the script each time you view it.
+
+/* Code Ends */
+
+
+/*
+
+CodeID: 22e7e0a4-4335-4666-b0ec-f446074ce822
+Title: Front-end Stack
+
+Description: <span style="color:#FF0000">H</span><span style="color:#00FF00">T</span><span style="color:#0000FF">M</span><span style="font-weight:bold">L</span> can be placed in this description area, inside your code comments so that you can render examples of your code, if you wish. This includes images and JavaScript.
+
+EndCodeDescription
+
+SubheadingsBlockStart
+Subheading: HTML5
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: CSS / SASS
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: JAVASCRIPT / JQUERY
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+SubheadingsBlockEnd
+
+CodeBegings: */
+
+The code area however, is escaped and will be printed as plain text.
+
+/* Code Ends */
+
+
+
+/*
+
+CodeID: 61d6269e-c74e-4868-84da-a61ed52c6792
+Title: Organization
+
+Description: In this example you can see how to list multiple languages on the right hand side. Basically you just need to list the description and subheadings once in any of the code blocks you want to display for this entry. For every subsequent code block you want to list in this entry, just list it under same CodeID, and change the language part to the one the block is.
+EndCodeDescription
+
+Language: CSS
+
+CodeBegings: */
+
+.style1 {
+  color:#000000;
+  border-style:solid;
+}
+
+/* Code Ends */
+
+/*
+
+CodeID: 61d6269e-c74e-4868-84da-a61ed52c6792
+
+Title: Organization
+
+Language: JavaScript
+
+CodeBegings: */
+
+function testFunction() {
+  var aNumber = 1;
+  return aNumber;
+}
+
+/* Code Ends */
+
+
+/*
+
+CodeID: eca5dcb7-8bb5-45eb-be23-2f07106d8362
+Title: Naming Conventions
+
+Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+CodeBegings: */
+
+HTML / CSS / JS
+
+/* Code Ends */

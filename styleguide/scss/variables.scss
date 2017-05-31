@@ -1,0 +1,154 @@
+/* ========================================================
+   MIXINS
+   ======================================================== */
+
+@mixin wkimo($property, $value) {
+-webkit-#{$property}: $value;
+ -khtml-#{$property}: $value;
+  -icab-#{$property}: $value;
+   -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+     -o-#{$property}: $value;
+     	#{$property}: $value;
+}
+
+@mixin calc($property, $value) {
+#{$property}: -webkit-calc(#{$value});
+#{$property}: -khtml-calc(#{$value});
+#{$property}: -icab-calc(#{$value});
+#{$property}: -moz-calc(#{$value});
+#{$property}: -ms-calc(#{$value});
+#{$property}: -o-calc(#{$value});
+#{$property}: calc(#{$value});
+}
+
+
+/* ========================================================
+   PATHS
+   ======================================================== */
+
+$assets:				"assets/";
+$images:				"../images/";
+
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+
+$tab-breakpoint:		768px;
+$sml-breakpoint:		1024px;
+$med-breakpoint:		1280px;
+$lrg-breakpoint:		1524px;
+$xlrg-breakpoint:		1716px;
+
+// MOB (15pt/21pt, 3pt, 6 Columns)
+@mixin mob-only {
+	@media screen and (max-width: #{$tab-breakpoint - 1px}) {
+		@content;
+	}
+}
+
+// TAB (16pt/24pt, 4pt, 12 Columns)
+@mixin tab {
+	@media screen and (min-width: #{$tab-breakpoint}) {
+		@content;
+	}
+}
+
+@mixin tab-only {
+	@media screen and (min-width: #{$tab-breakpoint}) and (max-width: #{$sml-breakpoint - 1px}) {
+		@content;
+	}
+}
+
+// SML (16pt/24pt, 4pt, 20 Columns)
+@mixin sml {
+	@media screen and (min-width: #{$sml-breakpoint}) {
+		@content;
+	}
+}
+
+@mixin sml-only {
+	@media screen and (min-width: #{$sml-breakpoint}) and (max-width: #{$med-breakpoint - 1px}) {
+		@content;
+	}
+}
+
+// MED (20pt/30pt, 5pt, 20 Columns)
+@mixin med {
+	@media screen and (min-width: #{$med-breakpoint}) {
+		@content;
+	}
+}
+
+@mixin med-only {
+	@media screen and (min-width: #{$med-breakpoint}) and (max-width: #{$lrg-breakpoint - 1px}) {
+		@content;
+	}
+}
+
+// LRG (20pt/30pt, 5pt, 24 Columns)
+@mixin lrg {
+	@media screen and (min-width: #{$lrg-breakpoint}) {
+		@content;
+	}
+}
+
+// XLRG (same ar LRG but above 1716)
+@mixin xlrg {
+	@media screen and (min-width: #{$xlrg-breakpoint}) {
+		@content;
+	}
+}
+
+// Safari and Google Chrome only
+@mixin webkit {
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		@content;
+	}
+}
+
+
+/* ========================================================
+   COLOURS
+   ======================================================== */
+
+$white:					#ffffff;
+$off-white:				#fafafa;
+$black:					#191919;
+$dark-grey:				#414042;
+$grey:					#63666A;
+$light-grey:			#75787B;
+$smoke:					#e6e6e6;
+
+$navy:					#003057;
+$navy-90:				#2B5373;
+$navy-70:				#55758F;
+$navy-50:				#8098AB;
+$navy-30:				#AABAC7;
+$navy-10:				#D4DCE3;
+
+$blue:					#0085CA;
+$blue-90:				#2B99D3;
+$blue-70:				#55AEDC;
+$blue-50:				#80C2E4;
+$blue-30:				#AAD6ED;
+$blue-10:				#D4EBF6;
+
+$yellow:				#FFD100;
+$green:					#949300;
+$orange:				#DC4405;
+$red:					#CB333B;
+
+
+/* ========================================================
+   FONTS
+   ======================================================== */
+
+$sans:					"acumin-pro","Acumin Pro","Arial",sans-serif; //200, 400, 700, 800
+$sans-cond:				"acumin-pro-cond","Acumin Pro Condensed","Arial Condensed",Arial,sans-serif; //300, 600
+$heading:				"avant-garde-std","Acumin Pro","Arial",sans-serif; //400, 700, 800
+$serif:					Georgia,serif;
+$mono:					"Droid Sans Mono",monospace,serif;
+$icons: 				"Material Icons";
+

@@ -1,0 +1,281 @@
+/* ========================================================
+   TYPOGRAPHY
+   ======================================================== */
+
+::selection,
+::-moz-selection {}
+
+.heading {
+    margin: 0;
+    padding: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+	font-family: $heading;
+	font-weight: 700;
+}
+
+.tk-sans {
+	font-family: $sans;
+	font-weight: 400;
+}
+
+.tk-icons {
+    bottom: -0.166667em;
+    display: inline-block;
+	font-family: $icons;
+    font-feature-settings: "liga";  /* Support for IE. */
+    font-size: 1.125rem;  /* Preferred icon sizes 18pt, 24pt, 36pt, 48pt */
+    font-style: normal;
+    font-weight: normal;
+    height: 1rem;
+    letter-spacing: normal;
+    line-height: 1;
+    position: relative;
+    text-rendering: optimizeLegibility;  /* Support for Safari and Chrome. */
+    text-transform: none;
+    top: 0.25rem;
+    width: 1rem;
+    word-wrap: normal;
+    -webkit-font-smoothing: antialiased;  /* Support for all WebKit browsers. */
+    -moz-osx-font-smoothing: grayscale;  /* Support for Firefox. */
+}
+
+.tk-mono {
+	font-family: $mono;
+	font-weight: 500;
+}
+
+h1 {
+	@extend .heading;	
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    padding-bottom: 1.5rem;
+    top: -1px;
+    &:first-child {
+	    margin-top: -1px;
+    }
+}
+
+h2 {
+	@extend .heading;
+}
+
+h3 {
+	@extend .heading;
+}
+
+h4, h5, h6 {
+	@extend .heading;
+	font-size: 1rem;
+	line-height: 1.5;
+	/* @include mob-only {
+		line-height: 1.4rem;
+	} */
+}
+
+abbr[title] { /* Addresses styling not present in IE7/8/9, S5, Chrome */
+    border-bottom: 1px dotted;
+}
+
+b,
+strong { /* Addresses style set to 'bolder' in FF3+, S4/5, Chrome */
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 2rem;
+}
+
+dfn { /* Addresses styling not present in S5, Chrome */
+    font-style: italic;
+}
+
+mark { /* Addresses styling not present in IE6/7/8/9 */
+    background: #ff0;
+    color: #000;
+}
+
+p,
+pre { /* Addresses margins set differently in IE6/7 */
+	font-weight: normal;
+    margin: 0 0 0.75rem 0;
+    padding: 0;
+    position: relative;
+	/* @include mob-only {
+	    margin-bottom: 0.6rem;
+	    top: 0;
+	} */
+}
+
+pre,
+code,
+kbd,
+samp { /* Corrects font family set oddly in IE6, S4/5, Chrome */
+    font-family: $mono;
+    _font-family: $mono;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+pre { /* Improves readability of pre-formatted text in all browsers */
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+hr {
+    border-color: $grey;
+    border-style: solid;
+    border-width: 0 0 1px;
+    clear: both;
+    display: block;
+    float: none;
+    margin-top: 0; margin-left: 0; margin-right: 0;
+    margin-bottom: -webkit-calc(2rem - 1px);
+    margin-bottom: -khtml-calc(2rem - 1px);
+    margin-bottom: -icab-calc(2rem - 1px);
+    margin-bottom: -moz-calc(2rem - 1px);
+    margin-bottom: -ms-calc(2rem - 1px);
+    margin-bottom: -o-calc(2rem - 1px);
+    margin-bottom: calc(2rem - 1px);
+    position: relative;
+    top: 1rem;
+}
+
+small {
+    font-size: 0.625rem;
+    line-height: 1.2;
+    color: #aaaaaa;
+	/* @include mob-only {
+	    font-size: 0.6rem;
+	} */
+}
+
+p.small, ul.small li {
+	@extend small;
+}
+
+sup { /* Prevents sub and sup affecting line-height in all browsers */
+    font-size: 0.75rem;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    top: -0.5rem;
+	/* @include mob-only {
+	    font-size: 0.6rem;
+		top: -0.4rem;
+	} */
+}
+
+sub {
+	@extend sup;
+    top: auto;
+    bottom: -0.25rem;
+	/* @include mob-only {
+    	bottom: -0.2rem;
+	} */
+}
+
+/* ========================================================
+   LISTS
+   ======================================================== */
+
+ul, ol, dl, menu { /* Addresses margins set differently in IE6/7 */
+    margin: 0 0 0.75rem;
+    list-style:outside disc;
+    padding: 0 0 0 1rem;
+	/* @include mob-only {
+    	margin-bottom: 0.6rem;
+    } */
+}
+
+li, menuitem {
+    font-weight: normal;
+    padding: 0;
+    margin: 0 0 0.5rem;
+	/* @include mob-only {
+    	margin-bottom: 0.4rem;
+    } */
+}
+
+ul {
+	ul &, ol &	{
+	    list-style:circle outside none;
+	    margin-bottom: 0;
+	}
+}
+
+ol {
+	ul &, ol &	{
+    	list-style:lower-alpha outside none;
+	    margin-bottom: 0;
+    }
+}
+
+dl {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+	/* @include mob-only {
+	    padding-left: 1.4rem;
+    	margin-bottom: 0.4rem;
+    } */
+	dt {
+		float: left;
+	}
+	dd {
+		margin: 0;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		/* @include mob-only {
+			padding-top: 0.4rem;
+			padding-bottom: 0.4rem;
+	    } */
+	}
+}
+
+
+nav { /* Corrects list images handled incorrectly in IE7 */
+    ul, ol {
+	    list-style: none outside none;
+	    padding: 0;
+	    margin: 0;
+	}
+}
+
+li {
+    nav &, .inline & {
+		display: inline-block;
+		float: left;
+	    padding: 0;
+	    margin: 0;
+	}
+}
+
+/* ========================================================
+   BLOCKQUOTES
+   ======================================================== */
+
+blockquote {
+    border-left: 0.5rem solid gray;
+	/* @include mob-only {
+    	border-left: 0.4rem solid gray;
+    } */
+	p {
+		&.author {
+		    font-style: italic;
+		    text-align: right;
+			&:before {
+				content: "“";
+			}
+		}
+	}
+}
+
+q { /* 1. Addresses CSS quotes not supported in IE6/7 */
+    quotes: none;
+	&:before, &:after { /* 2. Addresses quote property not supported in S4 */
+	    content: none;
+	}
+}
+

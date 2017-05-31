@@ -1,0 +1,590 @@
+// Resets
+@import "variables";
+@import "normalize";
+@import "typography";
+@import "tables";
+@import "media";
+@import "forms";
+
+// Libraries
+@import "prism.css";
+@import "jquery.fancybox.css";
+
+// Global Classes
+@import "global";
+
+// Gridie
+ul#grid {
+	//background-image:url(#{$assets}BG-grid-3.gif);
+	background-image:url(#{$assets}BG-grid-4.gif);
+	background-repeat:repeat;
+	background-position: left top;
+	//background-color: yellow;
+	background-color: green;
+	//background-size: 1px 6px;
+	background-size: 1px 8px;
+	display:block;
+	height:100%;
+	list-style-type:none;
+	margin:0 auto;
+	opacity:.3;
+	padding:0;
+	position:fixed;
+	top:0;
+	left:0px;
+	width:100%;
+	z-index:1000;
+	font-size:8px;
+	line-height:8px;
+    //min-width:320px;
+    min-width:$tab-breakpoint;
+	right:0;
+	/* @include tab {
+		background-image:url(#{$assets}BG-grid-4.gif);
+		background-size: 1px 8px;
+		background-color: green;
+    	min-width:$tab-breakpoint;
+    } */
+    @include sml {
+		background-color: blue;
+    	min-width:$sml-breakpoint;
+		// max-width: 1152px;
+    }
+    @include med {
+		background-image:url(#{$assets}BG-grid-5.gif);
+		background-size: 1px 10px;
+		background-color: purple;
+    	min-width:$med-breakpoint;
+		// max-width: 1440px;
+    }
+    @include lrg {
+		background-color: grey;
+    	min-width:$lrg-breakpoint;
+		max-width: 1716px;
+    }
+	li {
+		@extend .img-txt;
+		background-repeat:repeat;
+		background-position: left top;
+		background-color: transparent;
+		height:100%;
+		display:inline;
+		float:left;
+		padding:0;
+		margin:0;
+		&:nth-child(2n+1) {
+			background-color: red;
+		}
+		/* @include mob-only {
+			width:calc((100% - 1.2rem) / 6);
+			&:first-child { margin-left:0.6rem; }
+			&:nth-child(7) { width:0.6rem; }
+			&:nth-child(n+8) { display: none; }
+		} */
+		@include mob-only {
+			background-image:url(#{$assets}BG-grid-4.gif);
+			background-size: 1px 8px;
+			width:calc((100% - 2.75rem) / 12);
+			&:first-child { margin-left:1.375rem; }
+			&:nth-child(13) { width:1.375rem; }
+			&:nth-child(n+14) { display: none; }
+		}
+		@include tab-only {
+			background-image:url(#{$assets}BG-grid-4.gif);
+			background-size: 1px 8px;
+			width:calc((100% - 2.75rem) / 12);
+			&:first-child { margin-left:1.375rem; }
+			&:nth-child(13) { width:1.375rem; }
+			&:nth-child(n+14) { display: none; }
+		}
+		@include sml-only {
+			background-image:url(#{$assets}BG-grid-4.gif);
+			background-size: 1px 8px;
+			width:calc((100% - 3rem) / 20);
+			&:first-child { margin-left:1.5rem; }
+			&:nth-child(21) { width:1.5rem; }
+			&:nth-child(n+22) { display: none; }
+		}
+		@include med-only {
+			background-image:url(#{$assets}BG-grid-5.gif);
+			background-size: 1px 10px;
+			width:calc((100% - 3rem) / 20);
+			&:first-child { margin-left:1.5rem; }
+			&:nth-child(21) { width:1.5rem; }
+			&:nth-child(n+22) { display: none; }
+		}
+		@include lrg {
+			background-image:url(#{$assets}BG-grid-5.gif);
+			background-size: 1px 10px;			
+			width:calc((100% - 3rem) / 24);
+			&:first-child { margin-left:1.5rem; }
+			&:last-child { width:1.5rem; }			
+		}
+	}
+}
+
+// Layouts
+body#home .wrapper {
+	nav {
+		@include lrg {
+		    max-width: 82.8rem;
+		}
+		@include xlrg {
+		    right: 0;
+		    left: 0;
+		    margin: auto;
+		}
+	}
+	header.splash {
+		a#logo {
+			display: block;
+			position: absolute;
+		}
+		h1 {
+			bottom: 0;
+			color: $white;
+			font-size: 3.5rem;
+			height: 3.875rem;
+			left: 0;
+			line-height: 1;
+			margin: auto;
+			padding: 0;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			text-shadow: 0 0 0.5rem $navy;
+			top: -1.5rem;
+		}
+		form#search-form {
+		    left: auto;
+		    position: absolute;
+		    right: 0;
+		    top: 1.75rem;
+		    margin-left: 0;
+		    @include tab-only {
+			    display: block;
+		    }
+			.fieldrow {
+				label {
+				    color: rgba(255, 255, 255, 0.7);
+				}
+				input {
+					background-color: transparent;
+					border-color: $white;
+					&.active {
+				    	background-color: $navy;
+				    	color: $white;
+				    }
+				}
+				button {
+				    background-color: $white;
+				    span {
+						background: $white;
+						color: $navy;
+				    }
+				}
+			}
+		}
+		> nav {
+			left: 0;
+			position: relative;
+			right: 0;
+			top: 27.5rem;
+			text-align: center;
+			&:before {
+				background-color: $blue;
+			}
+			a.first-level {
+				display: inline-block;
+				float: none;
+		    	opacity: 1;
+		    	top: 0;
+				transition: top 500ms ease-out, opacity 500ms ease-out;
+			}
+			&.initial {
+				a.first-level {
+					top: 0.75rem;
+					opacity: 0;
+				}	
+			}
+		}
+	}
+	&:after {
+		@include sml {
+			content: "";
+			background-color: $black;
+			height: 100%;
+			left: 50%;
+			@include calc(margin-left,"(100vw - 3rem) * 0.125");
+			position: absolute;
+			top: 0;
+			width: 50%;
+			z-index: 0;
+		}
+		@include lrg {
+			@include calc(margin-left,"(100vw - 3rem) * 0.145833");
+		}
+		@media screen and (min-width: 1716px) {
+			margin-left: 12.1rem;
+		}
+	}
+	> article {
+		clear: both;
+		overflow: hidden;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 3.125rem;
+		padding-bottom: 0.125rem;		
+		z-index: 1;
+		@include lrg {
+			max-width: 82.8rem;
+		}
+		h2 {
+			color: $blue;
+			font-size: 2.5rem;
+			font-weight: 800;
+			line-height: 1;
+			margin-bottom: 1rem;
+			margin-top: 0.75rem;
+			@include sml {
+				margin-top: 1rem;
+			}
+			+ h3, + h5, + h6 {
+				margin-top: 0;
+			}
+			+ h4 {
+				margin-top: -1px;
+			}
+		}
+		h3 {
+			color: $navy;
+			font-family: $sans;
+			font-size: 1.5rem;
+			line-height: 1;
+			margin-bottom: 1rem;
+			margin-top: 1.5rem;
+			top: -1px;
+			@include sml {
+				top: 3px;
+			}
+			@include med {
+				top: 4px;
+			}
+			+ h4 {
+				@include calc(margin-top, "1.5rem - 1px");
+			}
+			+ h5, + h6 {
+				margin-top: 0;
+			}
+		}
+		h4 {
+			border-top: 1px solid #bbb;
+			color: $dark-grey;
+			text-transform: uppercase;
+			font-family: $sans;
+			font-weight: 400;
+			font-size: 1.25rem;
+			line-height: 1;
+			margin-bottom: 0.75rem;
+			@include calc(margin-top, "2rem - 1px");
+			padding-top: 0.5rem;
+			@include sml {
+				top: -2px;
+			}
+			+ h5, + h6 {
+				margin-top: 0;
+			}
+		}
+		h5, h6 {
+			color: #888;
+			font-family: $sans;
+			font-size: 1rem;
+			font-weight: 400;
+			letter-spacing: 1px;
+			line-height: 1.5;
+			margin-bottom: 0.75rem;
+			margin-top: 1rem;
+			text-transform: uppercase;
+		}
+		> h2, > h3, > h4, > h5, > h6, > p, > ul, > section, > figure {
+			@extend .genbox;
+			@extend .sml-med-12;
+			@extend .lrg-15;
+			float: left;
+			max-width: none;
+		}
+		> aside.code-snippet {
+			@extend .genbox;
+			@extend .sml-med-8;
+			@extend .lrg-9;
+			clear: both;
+			color: $white;
+			display: none;
+			float: right;
+			max-width: none;
+			padding-left: 2.5%;
+			padding-right: 0;
+			padding-top: 3.5rem;
+			z-index: 1;
+			@include sml {
+				display: block;
+			}
+			&:first-child {
+				padding-top: 1rem;
+			}
+			.tab-controller {
+				@extend .inline;
+				background-color: $dark-grey;
+				border-radius: 0.5rem;
+				float: left;
+				font-family: $mono;
+				font-size: 0.75rem;
+				line-height: 1.33333333;
+				margin-bottom: 0;
+				margin-left: 1.25rem;
+				overflow: hidden;
+				padding: 0.25rem;
+				position: relative;
+				top: -0.5rem;
+				li {
+					a {
+						background-color: $dark-grey;
+						border-radius: 0.25rem;
+						color: $black;
+						display: block;
+						height: 1.75rem;
+						line-height: 2.375;
+						min-width: 3.5rem;
+						padding-left: 0.5rem;
+						padding-right: 0.5rem;
+						text-align: center;
+						text-decoration: none;
+						&:hover {
+							color: $white;
+							text-shadow: 0 0 0.25rem $light-grey;
+						}
+						&:active {
+							background-color: $light-grey;
+						    color: $black;
+						}
+					}
+					&.visible {
+						a {
+							background-color: $smoke;
+						    color: $black;
+						}
+					}
+				}
+			}
+			pre {
+				background: transparent;
+				border-radius: 0;
+				clear: left;
+				font-size: 0.75rem;
+				line-height: 1.33333333;
+				margin: 0 0 0 1.5rem;
+				overflow-x: auto;
+				overflow-y: hidden;
+				padding: 0.5rem 0 0.75rem;
+				position: relative;
+				top: 0;
+				code {
+					color: $grey;
+					display: block;
+					font-family: $mono;
+					font-size: 0.75rem;
+					line-height: 1.33333333;
+					margin: 0;
+					padding: 0;
+					position: relative;
+					text-align: left;
+					text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+					top: 1px;
+					width: 100%;
+					z-index: 1;
+				}	
+			}
+			&.tabs {
+				pre {
+					display: none;
+					&.visible {
+						display: block;
+					}
+				}
+			}
+		}
+		> section {
+			margin-top: -0.125rem;
+			padding-top: 3.125rem;
+			h3:first-child {
+				margin-top: 0.75rem;
+				@include sml {
+					margin-top: 0.25rem;
+				}
+			}
+		}
+		figure {
+			overflow: hidden;
+			> div {
+				background-color: $white;
+				&.border {
+					border: 1px solid $smoke;
+					+ figcaption {
+						@include calc(padding-top, '0.75rem - 2px');
+						@include calc(min-height, '1.75rem - 2px');
+					}
+				}
+				&.font {
+				    background-color: transparent;
+				    padding-top: 0.25rem;
+					svg {
+					    max-width: 28.5rem;
+					    margin-bottom: 0.75rem;
+					    width: 70%;
+					}
+					.definition {
+					    border-left: 0.25rem solid $grey;
+					    float: right;
+					    font-size: 0.75rem;
+					    line-height: 1.66666667;
+					    margin-bottom: 0.75rem;
+					    padding-left: 0.5rem;
+					    width: 30%;
+					}
+				}
+			}
+			&.responsive {
+				background-color: $white;
+				.breakpoint {
+				    display: none;
+				    overflow: hidden;
+				    padding: 0.75rem;
+				    position: relative;
+					&.visible {
+						display: block;
+					}
+				}
+				.tab-controller {
+					@extend .inline;
+					@extend .pull-right;
+					margin: 0;
+					overflow: hidden;
+					li {
+						margin-left: 1px;
+						a {
+							background-color: transparent;
+							display: block;
+							height: 1.75rem;
+							width: 1.75rem;
+							svg {
+								fill: $grey;
+							}
+							&:hover {
+								background-color: $white;
+								svg {
+									fill: $dark-grey;
+								}
+							}
+							&:active {
+								background-color: $white;
+								svg {
+									fill: $blue;
+								}
+							}
+						}
+						&.visible {
+							a {
+								background-color: $white;
+								svg {
+									fill: $blue;
+								}
+							}
+						}
+					}
+				}
+			}
+			> .colors {
+				@extend .inline;
+			    margin-bottom: 0;
+			    overflow: hidden;
+			    padding-bottom: 3rem;
+			    padding-top: 1rem;
+				li {
+					@extend .img-txt;
+				    background-color: $grey;
+				    border: 1px solid rgba(0, 0, 0, 0.15);
+				    @include calc(border-radius, "4rem");
+				    display: block;
+				    height: 8rem;
+				    margin-right: 2rem;
+				    overflow: visible;
+				    position: relative;
+				    width: 8rem;
+					&:after {
+					    bottom: -2rem;
+					    content: attr(data-name);
+					    color: $dark-grey;
+					    left: 0;
+					    line-height: 1.5;
+					    position: absolute;
+					    text-align: center;
+					    text-indent: 0;
+					    top: auto;
+					    width: 100%;
+					}
+				}
+				&.medium {
+					li {
+				    	height: 6rem;
+				    	width: 6rem;
+					}
+				}
+				&.small {
+					li {
+				    	height: 5rem;
+				    	width: 5rem;
+					}
+				}
+			}
+			figcaption {
+			    background-color: $off-white;
+			    clear: left;
+			    display: block;
+			    min-height: 1.75rem;
+				padding-top: 0.75rem;
+				a {
+					color: $blue-70;
+					&:hover {
+						color: $blue;
+					}
+					&:active {
+						color: $red;
+					}
+				}
+			    &:before {
+					counter-increment: section;
+					content: "Figure " counter(section) "—";
+			    }
+			}
+		}
+	}
+	> article + hr {
+		border-width: 1px 0;
+		border-color: $smoke;
+		height: 0.25rem;
+		margin: 4rem 0.75rem 0;
+		top: 0;
+		@include sml {
+			@include calc(width, "60% - 1.5rem");
+		}
+		@include lrg {
+			@include calc(width, "62.5% - 1.5rem");
+		}
+		@media screen and (min-width: 1716px) {
+			left: -15.5rem;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50.25rem;
+		}
+	}
+}

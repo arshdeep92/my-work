@@ -1,0 +1,361 @@
+/*
+
+CodeID: 83454b03-62ff-42ec-8daa-737280675614
+Title: Breakpoints
+ 
+Description:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+CodeBegings: */
+
+HTML / CSS / JS
+
+/* Code Ends */
+
+
+
+/*
+
+CodeID: 9aa26161-a111-4f94-9dd2-50762be137ae
+Title: Grid
+
+Description:
+<p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the BelFuse grid system works:</p>
+<ul>
+  <li>Rows must be placed within a .container (fixed-width) or .container-fluid (full-width) for proper alignment and padding.</li>
+  <li>Use rows to create horizontal groups of columns.</li>
+  <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+  <li>Predefined grid classes like .row and .col-xs-4 are available for quickly making grid layouts. Less mixins can also be used for more semantic layouts.</li>
+  <li>Columns create gutters (gaps between column content) via padding. That padding is offset in rows for the first and last column via negative margin on .rows.</li>
+  <li>The negative margin is why the examples below are outdented. It's so that content within grid columns is lined up with non-grid content.</li>
+  <li>Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three .col-xs-4.</li>
+  <li>If more than 8/12/20 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.</li>
+  <li>Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any .col-md-* class to an element will not only affect its styling on medium devices but also on large devices if a .col-lg-* class is not present.</li>
+  <li>Look to the examples for applying these principles to your code.</li>
+ </ul>
+EndCodeDescription
+
+Language: HTML
+
+SubheadingsBlockStart
+Subheading: 8 Column GRID
+SubDescription:
+<table style="width: 60%;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Mobile (Tiny)</th>
+      <th>Mobile</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Abbreviations:</th>
+    <td>XS</td>
+    <td>SM</td>
+  </tr>
+  <tr>
+    <th>Breakpoint:</th>
+    <td> --- </td>
+    <td>360</td>
+  </tr>
+  <tr>
+    <th>Min Dimensions:</th>
+    <td>320 × 480</td>
+    <td>360 × 640</td>
+  </tr>
+  <tr>
+    <th>Avg Dimensions:</th>
+    <td>338 × 560</td>
+    <td>374 × 688</td>
+  </tr>
+  <tr>
+    <th>Max Dimensions:</th>
+    <td>359 × 640</td>
+    <td>414 × 736</td>
+  </tr>
+  <tr>
+    <th>Body Font:</th>
+    <td>12pt</td>
+    <td>12pt</td>
+  </tr>
+  <tr>
+    <th>Columns:</th>
+    <td>8</td>
+    <td>8</td>
+  </tr>
+  </tbody>
+</table>
+EndSubheadingDescription
+
+Subheading: 12 Column GRID
+SubDescription:
+<table style="width: 60%;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Tablet</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Abbreviations:</th>
+    <td>MD</td>
+  </tr>
+  <tr>
+    <th>Breakpoint:</th>
+    <td>720</td>
+  </tr>
+  <tr>
+    <th>Min Dimensions:</th>
+    <td>720 × 1024</td>
+  </tr>
+  <tr>
+    <th>Avg Dimensions:</th>
+    <td>768 × 1152</td>
+  </tr>
+  <tr>
+    <th>Max Dimensions:</th>
+    <td>800 × 1280</td>
+  </tr>
+  <tr>
+    <th>Body Font:</th>
+    <td>16pt</td>
+  </tr>
+  <tr>
+    <th>Columns:</th>
+    <td>12</td>
+  </tr>
+  </tbody>
+</table>
+EndSubheadingDescription
+
+Subheading: 20 Column GRID
+SubDescription:
+<table style="width: 60%;">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Desktop</th>
+      <th>Desktop (Large)</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Abbreviations:</th>
+    <td>LG</td>
+    <td>XL</td>
+  </tr>
+  <tr>
+    <th>Breakpoint:</th>
+    <td>1024</td>
+    <td>1280</td>
+  </tr>
+  <tr>
+    <th>Min Dimensions:</th>
+    <td>1024 × 768</td>
+    <td>1280 × 768</td>
+  </tr>
+  <tr>
+    <th>Avg Dimensions:</th>
+    <td>1088 × 784</td>
+    <td>1360 × 834</td>
+  </tr>
+  <tr>
+    <th>Max Dimensions:</th>
+    <td>1152 × 800</td>
+    <td>1440 × 900</td>
+  </tr>
+  <tr>
+    <th>Body Font:</th>
+    <td>16pt</td>
+    <td>20pt</td>
+  </tr>
+  <tr>
+    <th>Columns:</th>
+    <td>20</td>
+    <td>20</td>
+  </tr>
+  </tbody>
+</table>
+EndSubheadingDescription
+SubheadingsBlockEnd
+
+CodeBegings: */
+<!-- 8 COLUMN GRID -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+    <div class="col-xs-1">.col-xs-1</div>
+  </div>
+</div>
+
+<!-- 12 COLUMN GRID -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+    <div class="col-md-12">.col-md-12</div>
+  </div>
+</div>
+
+<!-- 20 COLUMN GRID -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+    <div class="col-lg-20">.col-lg-20</div>
+  </div>
+</div>
+
+/* Code Ends */
+
+
+/*
+
+CodeID: 546df527-f129-4686-aa08-4d55b355a1de
+Title: Colors
+
+Description:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+SubheadingsBlockStart
+Subheading: PRIMARY COLORS
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: SHADES & TINTS
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: BEST PRACTICES
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: SECONDARY COLORS
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+SubheadingsBlockEnd
+
+CodeBegings: */
+
+HTML / CSS / JS
+
+/* Code Ends */
+
+
+/*
+
+CodeID: 6acfc8f4-04f3-4f74-9197-786ce9b0ae1b
+Title: Typography
+
+Description:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+SubheadingsBlockStart
+Subheading: FONT FAMILIES
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: MAIN STYLES
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+
+Subheading: BEST PRACTICES
+SubDescription: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndSubheadingDescription
+SubheadingsBlockEnd
+
+CodeBegings: */
+
+HTML / CSS / JS
+
+/* Code Ends */
+
+
+/*
+
+CodeID: 98feceb6-7b9c-4736-a86f-b6143879bf9b
+Title: Tables
+
+Description:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+CodeBegings: */
+
+HTML / CSS / JS
+
+/* Code Ends */
+
+/*
+
+CodeID: c9c19f9a-22dd-4346-a092-2efaa328123d
+Title: Forms & Buttons
+
+Language: CSS
+
+Description:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+
+CodeBegings: */
+
+.style1 {
+  color:#000000;
+  border-style:solid;
+}
+
+/* Code Ends */
+
+
+/*
+
+CodeID: 487f16c4-a705-4576-8160-d0784bfb91c2
+Title: Media
+
+Description:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+EndCodeDescription
+
+CodeBegings: */
+
+HTML / CSS / JS
+
+/* Code Ends */
