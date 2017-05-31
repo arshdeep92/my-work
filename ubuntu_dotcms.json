@@ -1,0 +1,83 @@
+{
+  "name": "belfuse/dotcms",
+  "description": "dotCMS (H2DB) local development environment running on Ubuntu",
+  "versions": [
+    {
+      "version": "3.5.0.0",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_3_5_bf1.box",
+          "checksum_type": "sha1",
+          "checksum": "3ee6f48a440fdc2dead910c85c85f345ebf1c3cd"
+        }
+      ]
+    },
+    {
+      "version": "3.5.0.1",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_3_5_bf1.box",
+          "checksum_type": "sha1",
+          "checksum": "bfad3eeed9c08eddc58d96c4f10039fe42f9774e"
+        }
+      ]
+    },
+    {
+      "version": "3.5.0.3",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_3_5_bf3.box",
+          "checksum_type": "sha1",
+          "checksum": "0bec250d632963c5fc6bc20663173eb3d568b51f"
+        }
+      ]
+    },
+    {
+      "version": "3.5.0.4",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_3_5_bf4.box",
+          "checksum_type": "sha1",
+          "checksum": "4450fb4144d7d88b6b4780cfba3b1956b1bfea69"
+        }
+      ]
+    },
+    {
+      "version": "3.6.1.5",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_3_6_1_bf5.box",
+          "checksum_type": "sha1",
+          "checksum": "9d6fa75945bdfda2a85ff970b734352885b4b280"
+        }
+      ]
+    },
+    {
+      "version": "4.0.1",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_4_0_1.box",
+          "checksum_type": "sha1",
+          "checksum": "bd7ad6f7ff54391b22f67fec63fc784316ff3ff3"
+        }
+      ]
+    },
+    {
+      "version": "4.0.1.7",
+      "providers": [
+        {
+          "name": "virtualbox",
+          "url": "http://162.243.123.130/vagrant_boxes/ubuntu_dotcms_4_0_1_bf7.box",
+          "checksum_type": "sha1",
+          "checksum": "445882973bd012bdfc16fc34e78cfdaa1f979c1c"
+        }
+      ]
+    }
+  ]
+}

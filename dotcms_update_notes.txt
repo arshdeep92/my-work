@@ -1,0 +1,6 @@
+Updates to apply to DotCMS for BEL-505
+
+1. Create new Content Type called 'Materials Compliance'
+1. Create new Container called 'Materials Compliance'
+1. Add Container to 'Quality Landing Page Template'
+

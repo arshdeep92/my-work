@@ -1,0 +1,40 @@
+/.java-version
+
+# IDE Specific settings files
+.classpath
+.settings/*
+.project
+.idea/
+*.iml
+.nb-gradle/
+
+# Tool cache directories and files
+.gradle/
+.vagrant/
+.sass-cache/
+
+# OS generated files
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Build output directories
+build/
+node_modules/
+target/
+classes/
+coverage/
+
+# Other working files
+*.retry
+
+# Other directories
+imports/
+convert_test/
+
+dotcms/assets/src/main/resources/application/vtl/widgets/homepage-layout.vtl
+
+dotcms/content-migration/import_content_part_numbers.log
+
+dotcms/assets/src/main/resources/application/vtl/widgets/investor-relations.vtl

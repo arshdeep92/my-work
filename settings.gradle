@@ -1,0 +1,25 @@
+include 'dotcms:dynamic-plugins:ca.architech.dotcms.migrations'
+
+project (':dotcms:dynamic-plugins:ca.architech.dotcms.migrations').name = 'migrations'
+
+include 'dotcms:dynamic-plugins:com.dotcms.tuckey'
+
+project (':dotcms:dynamic-plugins:com.dotcms.tuckey').name = 'tuckey'
+
+include 'dotcms:dynamic-plugins:stock-check'
+
+include 'dotcms:dynamic-plugins:email-form'
+
+include 'dotcms:dynamic-plugins:utils'
+
+include 'dotcms:assets'
+
+include 'styleguide'
+
+include 'dotcms:end-to-end-tests'
+
+project(':dotcms:end-to-end-tests').name = 'e2e-tests'
+
+include 'dotcms:content-migration'
+
+rootProject.name = 'Bel Fuse DotCMS'
