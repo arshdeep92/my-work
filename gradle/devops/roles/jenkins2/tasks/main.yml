@@ -1,0 +1,16 @@
+---
+- name: Jenkins APT key
+  apt_key: state=present data="{{ lookup('file', 'jenkins-ci.org.key')}}"
+
+- apt_repository: repo='{{ item }}' state=present
+  with_items:
+    - 'deb http://pkg.jenkins-ci.org/debian binary/'
+    - 'ppa:git-core/ppa'
+- apt: update_cache=yes cache_valid_time=86400
+
+- name: install packages
+  apt: name={{ item }} state=present
+  with_items:
+    - jenkins
+    - git
+

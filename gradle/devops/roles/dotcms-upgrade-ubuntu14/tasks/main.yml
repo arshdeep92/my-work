@@ -1,0 +1,178 @@
+---
+# tasks file for dotcms-upgrade-ubuntu14
+- name: create downloads folder and new DotCMS home
+  file: path={{ item }} state=directory mode=0755
+  with_items:
+    - "{{ folder_downloads }}"
+    - "{{ dotcms_new_home }}"
+
+- name: check existence of DotCMS archive file
+  stat: path={{folder_downloads}}/{{dotcms_archive_name}}
+  register: archive_status
+
+- name: check existence of new DotCMS installation
+  stat: path={{ dotcms_new_home }}/bin
+  register: dotcms_status
+
+- name: archive status
+  debug: var=archive_status
+
+- name: DotCMS status
+  debug: var=dotcms_status
+
+- name: Download On remote
+  debug: var=dotcms_download_on_remote
+
+- name: download DotCMS
+  get_url:
+    "url='{{ dotcms_download_url }}'
+    dest={{ folder_downloads }}
+    timeout={{ dotcms_download_timeout }}"
+  when: archive_status.stat.exists == false and dotcms_status.stat.exists == false and dotcms_download_on_remote == true
+
+- name: copy DotCMS archive to remote
+  copy: src={{ dotcms_local_archive }} dest={{ folder_downloads }}/{{ dotcms_archive_name }}
+  when: archive_status.stat.exists == false and dotcms_status.stat.exists == false and dotcms_download_on_remote == false
+
+- name: Ensure unzip is installed
+  apt:
+    name: unzip
+    update_cache: yes
+    cache_valid_time: 3600
+    state: present
+
+- name: Unarchive DotCMS
+  unarchive:
+    src={{ folder_downloads }}/{{ dotcms_archive_name }}
+    dest={{ dotcms_new_home }}
+    remote_src=yes
+  when: dotcms_status.stat.exists == false
+
+- name: Symlink dotCMS log folder
+  file: src={{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/logs dest={{ dotcms_new_home }}/logs state=link force=yes
+
+- name: Create destination folders for copied files
+  file: path={{dotcms_new_home}}/{{ item }} state=directory
+  with_items:
+    - dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure
+
+- name: Shutdown DotCMS
+  service: name=dotcms state=stopped pattern=/dotserver/tomcat
+
+- name: Checking for Old DotCMS directory
+  stat: path={{ dotcms_old_home }}
+  register: dotcms_old_home_stat
+  changed_when: false
+
+- name: "{{dotcms_home}} status"
+  stat: path={{ dotcms_home }}
+  register: dotcms_home_stat
+  changed_when: false
+
+- name: Move old DotCMS to {{ dotcms_old_home }}
+  command: "mv {{ dotcms_home }} {{ dotcms_old_home }}"
+  when: dotcms_old_home_stat.stat.exists == false and dotcms_home_stat.stat.islnk == false
+
+# Should use this instead of command: cp ?
+# - name: Copy dynamic plugins folder
+#   synchronize:
+#     src={{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/felix/load
+#     dest={{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/felix/load
+
+  # Could replace with mv? Or at least needs a conditional
+- name: Copy dynamic plugins folder
+  command: cp -r {{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/felix/load/ {{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/felix/
+  when: skip_dynamic_plugins == false
+
+- name: Copy static plugins folder
+  command: cp -r {{ dotcms_old_home }}/plugins/ {{ dotcms_new_home }}/
+  when: skip_static_plugins == false
+
+#   # Should use this instead of copy?
+# - name: Copy static plugins folder
+#   synchronize:
+#     src={{ dotcms_old_home }}/plugins
+#     dest={{ dotcms_new_home }}/plugins
+
+  # Note: It may be better to only copy the license, server_id files and use templates for the others
+- name: Copy Files from Old DotCMS
+  copy:
+    remote_src=true
+    src={{dotcms_old_home}}/{{ item }}
+    dest={{dotcms_new_home}}/{{ item }}
+  with_items:
+    - dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/license.dat
+    - dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/server_id.dat
+    - dotserver/tomcat-8.0.18/conf/server.xml
+    - dotserver/tomcat-8.0.18/webapps/ROOT/META-INF/context.xml
+    - dotserver/tomcat-8.0.18/webapps/ROOT/starter.zip
+
+- name: Copy H2 Database
+  command: cp -r {{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/H2_DATABASE {{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/
+  when: copy_h2_database
+
+- name: Update startup.sh - Remove obsolete MaxPermSize if Java 8
+  replace:
+    dest="{{ dotcms_new_home }}/bin/startup.sh"
+    regexp="-XX:MaxPermSize=\d+\w+ "
+    replace=""
+  when: java_version is defined and java_version == 8
+
+- name: Update shutdown.sh - Remove obsolete PermSize if Java 8
+  replace:
+    dest="{{ dotcms_new_home }}/bin/shutdown.sh"
+    regexp=" -XX:PermSize=\d+\w+"
+    replace=""
+  when: java_version is defined and java_version == 8
+
+- name: Symlink dotCMS log folder
+  file: src={{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/logs dest={{ dotcms_new_home }}/logs state=link force=yes
+
+- name: Get status of assets folder
+  stat: "path={{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/assets"
+  register: assets_status
+  changed_when: false
+
+- name: Move Assets
+  command: mv -f {{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/assets {{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/assets
+  when: assets_status.stat.exists
+
+- name: Get status of Indices
+  stat: "path={{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/esdata"
+  register: indices_status
+  changed_when: false
+
+- name: Move Indices
+  command: mv -f {{ dotcms_old_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/esdata {{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/dotsecure/esdata
+  when: indices_status.stat.exists
+
+- block:
+
+    - name: Deploy new dynamic plugins
+      copy: src={{ item.value.localpath }} dest={{ dotcms_new_home }}/dotserver/tomcat-8.0.18/webapps/ROOT/WEB-INF/felix/load/{{ item.key }}
+      with_dict: "{{ new_dynamic_plugins }}"
+  when: new_dynamic_plugins is defined
+  rescue:
+    - debug: msg='Error likely due to new_dynamic_plugins being undefined'
+
+- name: Identify JAVA_HOME
+  shell: jrunscript -e 'java.lang.System.out.println(java.lang.System.getProperty("java.home"));'
+  register: JAVA_HOME_PATH
+  changed_when: false
+
+- name: Deploy plugins
+  command: "{{ dotcms_new_home }}/bin/deploy-plugins.sh"
+  environment:
+    JAVA_HOME: "{{JAVA_HOME_PATH.stdout}}"
+
+- name: Update dotCMS home directory permissions
+  file: path={{ dotcms_new_home }} state=directory mode=0755 owner={{ app_owner }} group={{ app_group }} recurse=yes
+
+# - name: Update service bash script to execute DotCMS 3.3
+#   lineinfile:
+#     dest=/etc/init.d/dotcms
+#     regexp=^DOTCMS_HOME
+#     line=DOTCMS_HOME={{ dotcms_new_home }}
+
+- name: Symlink DOTCMS
+  file: src={{ dotcms_new_home }}  dest={{ dotcms_home }} state=link owner={{ app_owner }} group={{ app_group }}

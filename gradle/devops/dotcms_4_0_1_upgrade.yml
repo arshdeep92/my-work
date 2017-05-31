@@ -1,0 +1,41 @@
+# This playbook will execute an upgrade of DotCMS from 3.5 to 3.6.1
+
+---
+# Shutdown DotCMS in order
+- hosts: dotcms-servers
+  become: true
+  gather_facts: false
+  tags:
+    - shutdown
+  tasks:
+    - name: stop DOTCMS
+      service: name=dotcms state=stopped pattern=/dotserver/tomcat
+
+# perform upgrade
+- hosts: dotcms-servers
+  become: true
+  tags:
+    - upgrade
+  vars:
+    dotcms_old_home: /opt/dotcms_3_6_1
+    dotcms_new_home: /opt/dotcms_4_0_1
+    dotcms_archive_name: dotcms_4.0.1.tar.gz
+
+    # Need to download DotCMS archive manually from http://dotcms.com/
+    # Place it in the devops folder, or the /vagrant folder on the control machine.
+    dotcms_download_on_remote: false
+    skip_dynamic_plugins: true
+    skip_static_plugins: true
+    copy_h2_database: true
+  roles:
+    - dotcms-upgrade-ubuntu14
+
+# Start DotCMS in order
+- hosts: dotcms-servers
+  become: true
+  gather_facts: false
+  tags:
+    - startup
+  tasks:
+    - name: start DOTCMS
+      service: name=dotcms state=started pattern=/dotserver/tomcat

@@ -1,0 +1,50 @@
+---
+- hosts: styleguide-server
+  become: true
+  vars:
+    styleguide:
+      user: node
+      group: node
+      password: node
+
+  pre_tasks:
+     # Will override the styleguide variable if the environment is prod. Requires a run with --ask-vault-pass
+    - name: Load secrets.yml
+      include_vars: "keys/secrets.yml"
+      no_log: true
+      when: "{{is_prod | bool}}"
+  roles:
+    - { role: SimpliField.node }
+  tasks:
+
+    - name: Update npm
+      npm: name=npm version=3.9.0 global=yes
+    - name: Install Forever
+      npm: name=forever version=0.15.2 global=yes
+
+    - name: Create styleguide group
+      group: name={{ styleguide.group }} state=present
+    - name: Create styleguide user
+      user: name={{ styleguide.user }}
+            group={{ styleguide.group }}
+            state=present
+            password={{ styleguide.password }}
+      when: not {{is_prod | bool}}
+
+    - block:
+
+      - name: Create styleguide user
+        user: name={{ styleguide.user }}
+            group={{ styleguide.group }}
+            groups="sudo"
+            state=present
+
+      - name: generate styleguide user public key from private key
+        local_action: copy dest=/tmp/{{ styleguide.key.key_file }} content={{ styleguide.key.content }} mode=0400
+
+      - local_action: shell ssh-keygen -y -f /tmp/{{ styleguide.key.key_file }} > /tmp/{{ styleguide.key.key_file }}.pub
+        changed_when: false
+
+      - name: add public key
+        authorized_key: user={{ styleguide.user }} key={{ lookup('file', '/tmp/{{ styleguide.key.key_file }}.pub')}}
+      when: "{{is_prod | bool}}"

@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.ssh.insert_key = false
+  config.vm.box = "ubuntu/trusty64"
+
+  # Ansible Control Machine definition.
+  config.vm.define "control" do |control|
+
+    control.vm.network "private_network", ip: "192.168.56.212"
+
+    # TODO: change provision over to ansible_local and test on Windows when Vagrant 1.8.2 is out.
+    control.vm.provision "shell" do |sh|
+      sh.path = "local_ansible.sh"
+      sh.args = ["/vagrant/control.yml", "/vagrant/requirements.yml"]
+    end
+    control.vm.provider "virtualbox" do |vb|
+      #vb.memory = "512"
+
+      # If testing deployments locally use this memory allocation instead.
+      vb.memory = "2048"
+    end
+  end
+end

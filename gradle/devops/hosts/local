@@ -1,0 +1,14 @@
+[digitalocean_drop_belfuse_tools]
+localhost ansible_connection=local
+
+[jenkins-server:children]
+digitalocean_drop_belfuse_tools
+
+[nginx-server:children]
+digitalocean_drop_belfuse_tools
+
+[styleguide-server:children]
+digitalocean_drop_belfuse_tools
+
+[dotcms-servers]
+dotcms01 ansible_user=vagrant ansible_ssh_pass=vagrant ansible_host=192.168.56.210 ansible_port=22

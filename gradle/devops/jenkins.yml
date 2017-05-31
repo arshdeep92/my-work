@@ -1,0 +1,41 @@
+---
+  - hosts: jenkins-server
+    become: true
+    roles:
+      - openjdk8
+      - jenkins2
+    tasks:
+      - name: load secrets
+        include_vars: "keys/secrets.yml"
+        no_log: true
+        when: "{{is_prod | bool}}"
+
+      - name: copy deploykey
+        copy:
+          src=keys/gitrepo_deploykey.key
+          dest=/var/lib/jenkins/gitrepo_deploykey.key
+          mode=0400
+          owner=jenkins
+          group=jenkins
+
+      - name: Install certificates
+        command: /var/lib/dpkg/info/ca-certificates-java.postinst configure
+
+      - name: Jenkins security options
+        lineinfile: dest=/etc/default/jenkins regexp=^JAVA_ARGS
+                     line="JAVA_ARGS=\"-Djava.awt.headless=true -Dhudson.model.DirectoryBrowserSupport.CSP=\\"sandbox allow-forms allow-scripts; default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';\\"\""
+        notify:
+          - Restart Jenkins
+
+      - name: copy Styleguide user private key
+        copy:
+          dest=/var/lib/jenkins/{{ styleguide.key.key_file }}
+          content={{ styleguide.key.content }}
+          mode=0400
+          owner=jenkins
+          group=jenkins
+        when: "{{ is_prod | bool }}"
+
+    handlers:
+      - name: Restart Jenkins
+        service: name=jenkins state=restarted

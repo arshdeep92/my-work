@@ -1,0 +1,18 @@
+---
+# tasks file for openjdk8
+
+- name: Add OpenJDK 8 repo
+  apt_repository: repo='{{ item }}' state=present
+  with_items:
+    - 'ppa:openjdk-r/ppa'
+- apt: update_cache=yes cache_valid_time=86400
+
+- name: install OpenJDK 8
+  apt: name={{ item }} state=present
+  with_items:
+    - openjdk-8-jdk
+
+- name: set java 8
+  alternatives: name=java path={{ java_home }}/jre/bin/java
+- name: set JAVA_HOME
+  template: src=jdk.sh.j2 dest=/etc/profile.d/jdk.sh

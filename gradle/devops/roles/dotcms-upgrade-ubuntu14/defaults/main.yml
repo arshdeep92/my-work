@@ -1,0 +1,22 @@
+---
+# defaults file for dotcms-upgrade-ubuntu14
+folder_downloads: /tmp/downloads
+java_version: 8
+app_owner: dotcms
+app_group: dotcms
+dotcms_download_url: "http://dotcms.com/physical_downloads/release_builds/{{ dotcms_archive_name }}"
+dotcms_download_timeout: 1200
+dotcms_home: /opt/dotcms
+copy_h2_database: false
+
+# True if the remote machine will download dotcms. False if the control machine will copy it over to the remote
+dotcms_download_on_remote: true
+
+# Path to the location of the dotcms archive on the control machine. Used if dotcms_download_on_remote is false
+dotcms_local_archive: /vagrant/{{ dotcms_archive_name }}
+
+# Skip copying dynamic plugins from old DotCMS to new
+skip_dynamic_plugins: false
+
+# Skip copying static plugins from old DotCMS to new
+skip_static_plugins: false

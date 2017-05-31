@@ -1,0 +1,14 @@
+[digitalocean_drop_belfuse_tools]
+do-belfuse-tools-01 ansible_host=162.243.123.130 ansible_user=root ansible_ssh_private_key_file=/home/vagrant/private_keys/digitalocean.key
+
+[jenkins-server:children]
+digitalocean_drop_belfuse_tools
+
+[nginx-server:children]
+digitalocean_drop_belfuse_tools
+
+[styleguide-server:children]
+digitalocean_drop_belfuse_tools
+
+[styleguide-server:vars]
+is_prod=true

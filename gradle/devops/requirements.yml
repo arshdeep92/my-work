@@ -1,0 +1,3 @@
+# Install Nginx role
+- src: geerlingguy.nginx
+- src: SimpliField.node

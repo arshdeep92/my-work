@@ -1,0 +1,39 @@
+---
+  - hosts: localhost
+    become: true
+    vars:
+      load_prod_keys: "{{ enable_prod is defined and enable_prod }}"
+      private_keys_folder: /home/vagrant/private_keys
+    tasks:
+      - name: default to vagrant directory
+        lineinfile:
+          dest=/home/vagrant/.bashrc
+          insertafter=EOF
+          line='cd /vagrant'
+      - name: packages
+        apt: name={{ item }} state=present update_cache=true
+        with_items:
+          - sshpass
+
+      - debug: var=load_prod_keys verbosity=3
+      - debug: var=enable_prod verbosity=3
+
+      - name: create keys folder
+        file: path={{ private_keys_folder }} state=directory
+        when: load_prod_keys
+
+      - include_vars: "keys/secrets.yml"
+        no_log: true
+        when: load_prod_keys
+
+      - name: Create DigitalOcean private key
+        copy:
+          dest="{{ private_keys_folder }}/{{ digitalocean_key.key_file }}"
+          content="{{ digitalocean_key.content }}"
+          mode="0400"
+          owner="vagrant"
+          group="vagrant"
+        when: load_prod_keys
+
+
+

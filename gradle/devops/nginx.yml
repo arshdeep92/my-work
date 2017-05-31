@@ -1,0 +1,20 @@
+---
+  - hosts: nginx-server
+    become: true
+    roles:
+      - role: geerlingguy.nginx
+
+    tasks:
+      - name: Place netComponents Proxy configuration
+        copy: src=files/netComponentsProxy dest=/etc/nginx/sites-available/netComponentsProxy
+        notify: Restart Nginx
+
+      - name: Make netComponents Proxy available
+        file: src=/etc/nginx/sites-available/netComponentsProxy dest=/etc/nginx/sites-enabled/netComponentsProxy state=link
+        notify: Restart Nginx
+
+    handlers:
+      - name: Restart Nginx
+        service: name=nginx state=restarted
+
+
