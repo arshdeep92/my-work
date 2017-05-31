@@ -1,0 +1,114 @@
+.floating-form {
+  max-width: 328px;
+  padding: 25px 30px 10px;
+  font-size: 13px;
+  background: #F9F9F9;
+  border: 1px solid #ddd;
+  right: 10px;
+  position: fixed;
+  box-shadow: -2px 0 8px rgba(43,33,33,.06);
+  -moz-box-shadow: -2px 0 8px rgba(43,33,33,.06);
+  -webkit-box-shadow: -2px 0 8px rgba(43,33,33,.06);
+  z-index: 20;
+  top:316px;
+}
+.contact-opener {
+  position: absolute;
+  left: -97px;
+  transform: rotate(-90deg);
+  top: 48px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.43);
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0
+}
+.floating-form-heading {
+  font-weight: normal;
+  font-style: italic;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding-bottom: 3px
+}
+.floating-form label {
+  display: block;
+  margin: 0 0 15px;
+  font-weight: normal;
+}
+.floating-form label>span {
+  font-weight: normal;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px
+}
+.floating-form span.required {
+  color: red
+}
+.floating-form .tel-number-field {
+  width: 40px;
+  text-align: center
+}
+.floating-form .long {
+  width: 120px
+}
+.floating-form input.input-field {
+  width: 68%
+}
+.floating-form .select-field, .floating-form .tel-number-field, .floating-form .textarea-field, .floating-form input.input-field {
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #C2C2C2;
+  box-shadow: 1px 1px 4px #EBEBEB;
+  -moz-box-shadow: 1px 1px 4px #EBEBEB;
+  -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  padding: 7px;
+  outline: 0
+}
+.floating-form .input-field:focus, .floating-form .select-field:focus, .floating-form .tel-number-field:focus, .floating-form .textarea-field:focus {
+  border: 1px solid #0C0
+}
+.floating-form .textarea-field {
+  height: 100px;
+  width: 68%
+}
+.contact-opener, .floating-form input[type=button], .floating-form input[type=submit] {
+  -moz-box-shadow: inset 0 1px 0 0 #3985B1;
+  -webkit-box-shadow: inset 0 1px 0 0 #3985B1;
+  box-shadow: inset 0 1px 0 0 #3985B1;
+  background-color: #216288;
+  border: 1px solid #17445E;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFF;
+  padding: 8px 13px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.contact-opener, .floating-form input[type=button]:hover, .floating-form input[type=submit]:hover {
+  background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+  background-color: #28739E;
+}
+.floating-form .success {
+  background: #D8FFC0;
+  color: #2E6800;
+  border-left: 3px solid #2E6800
+}
+.floating-form .error, .floating-form .success {
+  padding: 5px 10px;
+  margin: 0 0 5px;
+  border: none;
+  font-weight: 700
+}
+.floating-form .error {
+  background: #FFE8E8;
+  color: red;
+  border-left: 3px solid red
+}

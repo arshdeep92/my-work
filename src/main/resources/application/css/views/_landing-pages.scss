@@ -1,0 +1,372 @@
+
+/*
+Group Landing Page CSS Code:
+// */
+
+  /* IE Only*/
+html[data-useragent*='MSIE 10.0'] .group-landing-template .landing-page-background {
+    &.background-image {
+      .image-container {
+        position: relative;top:9rem;left:1rem;
+      .text-container {
+        width:80%;
+      }}
+    }
+  }
+  html[data-useragent*='rv:11.0'] .group-landing-template .landing-page-background {
+    &.background-image {
+      .image-container {
+        position: relative;top:9rem;left:1rem;
+      .text-container {
+        width:80%;
+      }}
+    }
+  }
+  /* End IE Only */
+.group-landing-template {
+
+.accordion-collapse-ul {
+margin-top: 0px;
+padding-top: 0px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+}
+.accordion-collapse-ul li:last-child{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+  /*
+  Overrrides:
+  // */
+  background: $smoke;
+  &.dotcms-edit-mode {
+    #breadcrumb {
+
+      &.splash {
+        display: none;
+      }
+
+      &.sticky {
+        display: none;
+      }
+    }
+  }
+
+  #breadcrumb {
+
+    &.splash {
+      background:transparent;
+      border:none;
+
+      .global-search-label {
+        color: $white;
+
+        @include tab-only-responsive {
+          color: $text;
+        }
+      }
+    }
+
+    &.sticky {
+      .global-search-label {
+        color: $white;
+
+        @include tab-only-responsive {
+          color: $text;
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    padding-top: 0rem;
+  }
+
+  .wrapper > main {
+    padding-top: 0rem;
+  }
+
+  .col-lg-4_5 {
+    @media (min-width: $lrg-breakpoint) {
+      width: 25%;
+    };
+  }
+
+  .header-overlap {
+    margin-top:-2rem;
+    -webkit-box-shadow: 0 -0.75rem 2rem -0.45rem rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 -0.75rem 2rem -0.45rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 -0.75rem 2rem -0.45rem rgba(0, 0, 0, 0.25);
+  }
+
+  /*
+  End Overrides
+  // */
+
+  .landing-page-background.background-image > img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: .65;
+    height: 100%;
+  }
+
+  .col-centered {
+    display:inline-block;
+    float:none;
+    text-align:left;
+    margin-right:-4px;
+  }
+
+  .series-display-container {
+    //padding-left: 1rem;
+    //padding-right: 1rem;
+    text-align: left;
+    //background-color: $white;
+    //opacity: 1;
+    //position:relative;
+    padding-top:1rem;
+    background: $smoke;
+  }
+
+  .individual-series-display-container {
+    margin-bottom: 1.5rem;
+
+    .links-area-container {
+      display: block;
+      height: 18rem;
+      overflow: auto;
+
+      @include mob {
+        display: none;
+      }
+    }
+    .mobile-panel-heading {
+      font-family: $heading;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: $navy;
+    }
+    .links-area {
+      height:18rem;
+      overflow: hidden;
+      position:relative;
+      background: linear-gradient($white,$white,$smoke);
+      @include mob {
+        height: 10rem;
+        position: relative;
+        padding: 1rem;
+      }
+
+      .product-series-primary-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .product-series-widget-image {
+        @include mob {
+          //max-width: 100%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+      ul {
+        list-style: none;
+        &.product-series-widget-categories-list {
+          padding: 1rem 3rem;
+          @include mob {
+            display: none;
+          }
+          li {
+            display: table;
+            width: 100%;
+            border-bottom: 1px solid $light-grey;
+            padding: .25em 0px;
+            &:first-child {
+              border-top: 1px solid $light-grey;
+            }
+            a {
+              display: table-cell;
+              color: $blue;
+              font-family: $sans-cond;
+              font-size: 0.875em;
+            }
+          }
+        }
+      }
+      .gradient-overlay {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba($white,0), rgba($white,0), rgba($white,0), rgba($white,0), rgba($white,0.8));
+        position: absolute;
+      }
+
+      i {
+        float: right;
+        margin-bottom: -2px;
+        background-color: $blue;
+        color: $white;
+        border-radius: 50%;
+        font-size: 1em;
+      }
+    }
+
+    &:hover {
+
+      .product-series-widget-image {
+        display:none;
+        @include mob {
+          display: block;
+        }
+      }
+
+      .gradient-overlay {
+        display:none;
+      }
+
+      .links-area {
+        background: $smoke;
+        width:100%;
+        display:table;
+        @include mob {
+          display: block;
+          background: $white;
+        }
+        ul {
+          display:table-cell;
+          vertical-align: middle;
+          @include mob {
+            display: none;
+          }
+        }
+      }
+
+      .product-series-widget-title {
+        background-color: $blue;
+
+        a {
+          color: $white;
+        }
+
+        .product-type-title {
+          color: $white;
+        }
+      }
+
+    }
+  }
+
+  .product-series-widget-title {
+    background: $light-grey;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    font-family: $heading;
+    font-weight: 600;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    a {
+      color: $dark-grey;
+      letter-spacing: 1px;
+    }
+    .product-type-title {
+      font-weight: 700;
+      color: $navy;
+      @include mob {
+        font-size: 1rem;
+        vertical-align: bottom;
+        color: $dark-grey;
+      }
+    }
+
+    .material-icons {
+      font-size: 0.65rem;
+      line-height: 1.5;
+      font-weight: 600;
+      @include mob {
+        font-size: 1rem;
+        vertical-align: bottom;
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .landing-page-background {
+    &.background-image {
+      @include displayflex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center right -10rem;
+      min-height: 25rem;
+      overflow: hidden;
+      width: 100%;
+      .image-container {
+        padding: 0 4rem;
+        @include mob {
+          padding: 0 1rem;
+        }
+      .text-container {
+        padding: 0 4rem;
+        @include mob {
+          padding: 0 1rem;
+        }
+      }}
+    }
+  }
+
+  .container-fluid {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
+  .landing-page-logo-image {
+    overflow: hidden;
+    max-height: 10rem;
+    max-width: 23.95rem;
+    @include mob {
+      max-width: 100%;
+    }
+  }
+
+  .landing-page-text {
+    text-align: left;
+    width: 100%;
+    color: $white;
+    font-family: $heading;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.17;
+  }
+
+  .logo-and-text-holder {
+    text-align: left;
+  }
+
+  .background-gradient {
+    @include directionalGradient($green, $blue, 90deg);
+    position: relative;
+  }
+
+  .first-row {
+    margin-top:8rem;
+  }
+
+  .product-series-widget-image {
+    //height: 8rem;
+  }
+
+  .button{
+    width:auto;
+  }
+
+}
+
+/*
+End Group Landing Page CSS Code:
+// */

@@ -1,0 +1,80 @@
+/*//Created by KVijay on 27-04-2017.
+//Assembly instructions CSS*/
+.assembly-inst-container {
+    height: 22rem;
+  }
+.assembly-inst-container {
+  .assembly-radio {
+    display: inline !important;
+  }
+  .asmbly-label {
+    font-weight: 500;
+    font-size: 0.78rem;
+    @include mob {
+      font-size: 1rem;
+    }
+  }
+  .choose-location-or-type .choose-location {
+    margin-right: -5rem !important;
+    .stock-label {
+      padding-left: 17px;
+      @include mob{
+        padding-left: 0!important;
+      }
+    }
+    @include mob{
+      margin-right: 0rem !important;
+    }
+  }
+  #btnasmblySearch {
+    @media screen and (min-width: 720px), screen and (min-device-width: 720px) and (max-device-width: 1280px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1), screen and (min-device-width: 720px) and (max-device-width: 1280px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+      padding: 0.34rem 0.8rem;
+      float: left;
+      margin: -1px 0px 0px -21px;
+       }
+    @media screen and (min-width: 1024px) {
+      padding: 0.54rem 0.8rem;
+      float: left;
+      margin: -1px 0px 0px -21px;
+      }
+    @media screen and (min-width: 1280px) {
+      padding: 0.34rem 0.8rem;
+      float: left;
+      margin: -1px 0px 0px -21px;
+    }
+    @include mob {
+      padding: 10px 20px 10px 18px;
+      float: left;
+      margin: -1px 0px 0px -10px;
+      font-size: 1rem;
+    }
+  }
+  #asmblySearch{
+    @include mob {
+      font-size: 1rem;
+    }
+  }
+}
+  .show-error{
+    clear: both;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: .8rem;
+    color: #cb333b;
+  }
+  #asmblyInstResults{
+    display: none;
+  }
+
+.choose-location #bypartasmbly{
+  margin-left: 0.8rem;
+  @include mob{
+    margin-left: 0!important;
+  }
+}
+.choose-location #byasmbly{
+  margin-left: 1.5rem!important;
+  @include  mob{
+    margin-left: 1rem !important;
+  }
+}

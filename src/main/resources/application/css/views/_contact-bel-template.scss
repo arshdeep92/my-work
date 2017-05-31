@@ -1,0 +1,113 @@
+.contact-bel-template .wrapper main{
+	margin-top:0;
+	padding-top:0;
+}
+.find-representatives-template .wrapper main{
+	margin-top:0;
+	padding-top:0;
+}
+.find-distributors-template .wrapper main{
+	margin-top:0;
+	padding-top:0;
+}
+.card {
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+.card-info{
+    text-align: center;
+    padding: 15px 25px 15px 25px;
+}
+.card-info.info-separator:after{
+    display: none;
+  }
+.card-info li{
+    padding: 8px 0;
+    border-bottom: 1px solid #E5E5E5;
+    color: #666666;
+}
+.card-info ul{
+    width: 240px;
+    margin: 10px auto;
+}
+.card-info li:last-child{
+    border: 0;
+}
+.card .image {
+  width: 100%;
+  overflow: hidden;
+  //height: 260px;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.card .image img {
+  width: 100%;
+}
+.card .content {
+  padding: 15px 15px 10px 15px;
+}
+.card .title {
+  margin: 0 0 10px 0;
+  color: #333333;
+  font-weight: 300;
+}
+.card .footer {
+  padding: 0;
+  background-color: transparent;
+  line-height: 30px;
+}
+.card .footer div {
+  display: inline-block;
+}
+.card .author {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .author i {
+  font-size: 14px;
+}
+.card .avatar {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.card-small{
+    margin-top: 35px;
+}
+.presentation h4{
+    font-weight: 300;
+}
+.presentation h4{
+    font-size: 18px;
+    line-height: 28px;
+}
+.card .description {
+  font-size: 14px;
+  color: #333;
+}
+.wsite-spacer {
+	height: 46px;
+}
+.contact-us-th{
+  background: #0085CA;
+  color:#fff;
+}
+.contact-us-results-table{
+  font-size: 14px;line-height: 1.42857143;
+}
+.off-white-background {
+  background:#EEF1F4;
+}
+.bright-blue-text{
+  color:#2CA8FF;
+}

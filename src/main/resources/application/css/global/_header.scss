@@ -1,0 +1,78 @@
+//
+// Header
+// --------------------------------------------------
+$dsk-header-width: 7.9rem;
+
+header {
+  @include backgroundGradient($navy, $dark-blue);
+  height: 5em;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  z-index: 110;
+
+  @include tab-only-responsive {
+    position: fixed;
+    height: 4em;
+    @include displayflex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  @include mob {
+    height: 5rem;
+  }
+  a#bel-logo {
+    cursor: default;
+    display: block;
+    padding: 0;
+    // pointer-events: none;
+    width: 100%;
+    @include tab-only-responsive {
+      z-index: 10;
+      height: 100%;
+      width: auto;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  h1 {
+    background-color: $blue;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+
+    @include tab-only-responsive {
+      max-width: 11rem;
+      z-index: 10;
+      height: 100%;
+    }
+
+    @include dsk {
+      height: 4rem;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  @include dsk {
+    position: fixed;
+    right: auto;
+    height: 100%;
+    max-width: none;
+    min-height: 30rem;
+    width: $dsk-header-width;
+  }
+
+  //@include tab-min-height {
+  //  position: absolute;
+  //  min-height: $tab-breakpoint;
+  //}
+}

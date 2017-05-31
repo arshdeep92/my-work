@@ -1,0 +1,134 @@
+/* -------------------------------------
+    COLOURS
+------------------------------------- */
+
+$white:					#ffffff;
+$black:					#00203a;
+
+$navy:					#003057;
+$dark-blue:             #1a4568;
+$blue:					#0085CA;
+$green:					#67bd1b;
+$yellow:				#ffd100;
+$orange:				#e98d19;
+$red:					  #cb333b;
+
+$dark-grey:			#66839a;
+$grey:					#99acbc;
+$basic-grey:    #dddddd;
+$light-grey:		#ccd6dd;
+$off-white:     #EEF1F4;
+$smoke:					#eef1f4;
+$text:					#5f5e60;
+
+
+$dark-green: darken($green, 10%);
+
+/* -------------------------------------
+    FONTS
+------------------------------------- */
+
+$sans:					"acumin-pro","Acumin Pro","Arial",sans-serif;
+$sans-cond:				"acumin-pro-condensed","Acumin Pro Condensed","Arial Condensed",Arial, sans-serif;
+$heading:				"avant-garde-std","Acumin Pro","Arial",sans-serif;
+
+$font-size-mob:			12px !default;
+$font-size-tab:			16px !default;
+$font-size-dsk:			16px !default;
+$font-size-lrg:			20px !default;
+
+
+/* -------------------------------------
+    RESPONSIVE
+------------------------------------- */
+// Matching breakpoints defined in constants.js
+$tiny-breakpoint-number:		320;
+$mob-breakpoint-number:		  360;
+$tab-breakpoint-number:		  720;
+$dsk-breakpoint-number:		  1024;
+$lrg-breakpoint-number:		  1280;
+
+$tiny-breakpoint:		$tiny-breakpoint-number + 0px;
+$mob-breakpoint:		$mob-breakpoint-number + 0px;
+$tab-breakpoint:		$tab-breakpoint-number + 0px;
+$dsk-breakpoint:		$dsk-breakpoint-number + 0px;
+$lrg-breakpoint:		$lrg-breakpoint-number + 0px;
+
+// Extra small screen / phone
+$screen-xs:                  $tiny-breakpoint !default;
+$screen-xs-min:              $screen-xs !default;
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+$screen-sm:                  $mob-breakpoint !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+$screen-md:                  $tab-breakpoint !default;
+$screen-md-min:              $screen-md !default;
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+$screen-lg:                  $dsk-breakpoint !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// Extra Large screen / wide desktop
+$screen-xl:                  $lrg-breakpoint !default;
+$screen-xl-min:              $screen-xl !default;
+$screen-xl-desktop:          $screen-xl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-lg-max:              ($screen-xl-min - 1) !default;
+
+
+/* -------------------------------------
+    GRIDS
+------------------------------------- */
+
+$col-8-1:				12.5%;
+$col-8-2:				25%;
+$col-8-3:				37.5%;
+$col-8-4:				50%;
+$col-8-5:				62.5%;
+$col-8-6:				75%;
+$col-8-7:				87.5%;
+$col-8:					100%;
+
+$col-12-1:			8.33333333%;
+$col-12-2:		  16.6666667%;
+$col-12-3:			25%;
+$col-12-4:			33.3333333%;
+$col-12-5:			41.6666667%;
+$col-12-6:			50%;
+$col-12-7:			58.3333333%;
+$col-12-8:			66.6666666%;
+$col-12-9:			75%;
+$col-12-10:			83.3333333%;
+$col-12-11:			91.6666666%;
+$col-12:				100%;
+
+$col-20-1:			5%;
+$col-20-2:			10%;
+$col-20-3:			15%;
+$col-20-4:			20%;
+$col-20-5:			25%;
+$col-20-6:			30%;
+$col-20-7:			35%;
+$col-20-8:			40%;
+$col-20-9:			45%;
+$col-20-10:			50%;
+$col-20-11:			55%;
+$col-20-12:			60%;
+$col-20-13:			65%;
+$col-20-14:			70%;
+$col-20-15:			75%;
+$col-20-16:			80%;
+$col-20-17:			85%;
+$col-20-18:			90%;
+$col-20-19:			95%;
+$col-20:				100%;

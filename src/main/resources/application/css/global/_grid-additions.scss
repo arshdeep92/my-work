@@ -1,0 +1,25 @@
+.flex-center {
+  @include displayflex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-row.row {
+  @include displayflex;
+  flex-wrap: wrap;
+}
+
+.flex-row.row > [class*='col-'] {
+  @include displayflex;
+  flex-direction: column;
+}
+
+.flex-row.row:after,
+.flex-row.row:before {
+  @include displayflex;
+}
+

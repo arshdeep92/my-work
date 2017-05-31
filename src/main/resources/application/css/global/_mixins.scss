@@ -1,0 +1,416 @@
+/* -------------------------------------
+    MIXINS
+------------------------------------- */
+
+@mixin wkimo-prop($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -icab-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin wkimo-val($property, $value) {
+  #{$property}: -webkit-#{$value};
+  #{$property}: -khtml-#{$value};
+  #{$property}: -icab-#{$value};
+  #{$property}: -moz-#{$value};
+  #{$property}: -ms-#{$value};
+  #{$property}: -o-#{$value};
+  #{$property}: #{$value};
+}
+
+@mixin calc($property, $value) {
+  #{$property}: -webkit-calc(#{$value});
+  #{$property}: -khtml-calc(#{$value});
+  #{$property}: -icab-calc(#{$value});
+  #{$property}: -moz-calc(#{$value});
+  #{$property}: -ms-calc(#{$value});
+  #{$property}: -o-calc(#{$value});
+  #{$property}: calc(#{$value});
+}
+
+@mixin breakpoint($point) {
+  // <768px
+  @if $point == xs {
+    @media (max-width: $screen-xs-max) {
+      @content;
+    }
+  }
+    // >= 768px and <992px
+  @else if $point == sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @content;
+    }
+  }
+    // >992px and <1200px
+  @else if $point == md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
+    // >1024px and  <1280px
+  @else if $point == lg {
+    @media (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+    // >1280px
+  @else if $point == xl {
+    @media (min-width: $screen-xl-min) {
+      @content;
+    }
+  }
+    // <992px
+  @else if $point == smmax {
+    @media (max-width: $screen-sm-max) {
+      @content;
+    }
+  }
+    // >=992px
+  @else if $point == mdmin {
+    @media (min-width: $screen-md-min) {
+      @content;
+    }
+  }
+    // <=480px
+  @else if $point == xxs {
+    @media (max-width: $screen-xs-min) {
+      @content;
+    }
+  }
+}
+
+// use
+// @include breakpoint(xs) { ... }
+// @include breakpoint(sm) { ... }
+// @include breakpoint(md) { ... }
+// @include breakpoint(lg) { ... }
+
+// MOB : 12pt/18pt, 3pt, 8 Columns
+@mixin mob {
+  @media screen and (max-width: #{$tab-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+@mixin tiny {
+  @media screen and (max-width: #{$mob-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// TAB : 16pt/24pt, 4pt, 12 Columns
+@mixin tab {
+  @media screen and (min-width: #{$tab-breakpoint}),
+  screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$lrg-breakpoint}) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1),
+  screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$lrg-breakpoint}) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin tab-portrait {
+  @media screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$dsk-breakpoint}) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1),
+  screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$dsk-breakpoint}) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin tab-landscape {
+  @media screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$lrg-breakpoint}) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1),
+  screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$lrg-breakpoint}) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin tab-min-height {
+  @media screen and (max-height: #{$tab-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin tab-only {
+  @media screen and (min-width: #{$tab-breakpoint}) and (max-width: #{$dsk-breakpoint - 1px}),
+  screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$lrg-breakpoint}) and (-webkit-min-device-pixel-ratio: 1),
+  screen and (min-device-width: #{$tab-breakpoint}) and (max-device-width: #{$lrg-breakpoint}) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin tab-only-responsive {
+  @media screen and (max-width: #{$dsk-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+@mixin tab-gap {
+  @media screen and (min-width: #{$tab-breakpoint}) and (max-width: #{$dsk-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// DSK : 20 Columns
+@mixin dsk {
+  @media screen and (min-width: #{$dsk-breakpoint}) {
+    @content;
+  }
+}
+
+// DSK (Small) : 16pt/24pt, 4pt, 20 Columns
+@mixin sml {
+  @media screen and (min-width: #{$dsk-breakpoint}) and (max-width: #{$lrg-breakpoint - 1px}) {
+    @content;
+  }
+}
+
+// DSK (Large) : 20pt/30pt, 5pt, 20 Columns
+@mixin lrg {
+  @media screen and (min-width: #{$lrg-breakpoint}) {
+    @content;
+  }
+}
+
+// Safari and Google Chrome only
+@mixin webkit {
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @content;
+  }
+}
+
+@mixin alpha-background-color($color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  background-color: $solid-color;
+  background-color: $color;
+
+  /* For IE 5.5 - 7*/
+  // filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+/*
+  Image Hover Mixin - causes a zoom in effect on image hover
+  Example use:
+  img{
+        @include fancy-img-hover(0.85);
+  }
+ */
+@mixin fancy-img-hover($opacity) {
+  opacity: $opacity;
+  transition: all 200ms, opacity .25s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  &:hover {
+    transform: scale3d(1.05, 1.05, 1.05);
+    opacity: 1;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/*
+  Arrow Mixin - creates an arrow, also expects an absolute position
+  Example use:
+  .member-item--holder:after {
+    top: auto;
+    left: 50%;
+    margin: -40px 0 0 -15px;
+    @include arrow(up, $white, 20px);
+  }
+ */
+@mixin arrow($direction, $color, $size) {
+  position: absolute;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  border-width: $size;
+  @if $direction == up {
+    border-bottom-color: $color;
+  } @else if $direction == down {
+    border-top-color: $color;
+  } @else if $direction == left {
+    border-right-color: $color;
+  } @else if $direction == right {
+    border-left-color: $color;
+  }
+}
+
+/*
+  Social Icon Mixin - creates a circular social icon
+  Example use:
+  li {
+    margin-right: 10px;
+    @include social-icon(42px, 24px, $grey, $white);
+  }
+ */
+@mixin social-icon($size, $fontSize, $background, $color) {
+  color: $color;
+  border-radius: 50%;
+  text-align: center;
+  background: $background;
+  font-size: $fontSize;
+  width: $size;
+  height: $size;
+  line-height: $size;
+}
+
+/*
+  Modernizr Mixin - handles Modernizr conditions
+  Example use:
+  @include modernizr(no-touch) {
+      @include architech-img-hover(0.6);
+  }
+ */
+@mixin modernizr($condition) {
+  html.#{$condition} & {
+    @content;
+  }
+}
+
+// Custom Mixins
+
+@mixin clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+@mixin center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin customCenter($offsetX, $offsetY) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate($offsetX, $offsetY);
+  -moz-transform: translate($offsetX, $offsetY);
+  -ms-transform: translate($offsetX, $offsetY);
+  -o-transform: translate($offsetX, $offsetY);
+  transform: translate($offsetX, $offsetY);
+}
+
+@mixin fillContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@mixin backgroundGradient($firstColour, $secondColour, $gradientOrientationStart: top, $gradientOrientationEnd: bottom) {
+  background: $firstColour;
+  background: -moz-linear-gradient($gradientOrientationStart, $firstColour 0%, $secondColour 100%);
+  background: -webkit-linear-gradient($gradientOrientationStart, $firstColour 0%, $secondColour 100%);
+  background: linear-gradient(to $gradientOrientationEnd, $firstColour 0%, $secondColour 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$firstColour, endColorstr=$secondColour, GradientType=0);
+}
+
+@mixin directionalGradient($start-color, $end-color, $deg: 90deg) {
+  // background-image: $end-color;
+  background-image: -webkit-linear-gradient($deg, $start-color, $end-color); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient($deg, $start-color, $end-color); /* FF3.6+ */
+  background-image: -ms-linear-gradient($deg, $start-color, $end-color); /* IE10 */
+  background-image: -o-linear-gradient($deg, $start-color, $end-color); /* Opera 11.10+ */
+  background-image: linear-gradient($deg, $start-color, $end-color);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$start-color}", endColorstr="#{$end-color}", GradientType=1); /* IE8 & IE9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$start-color}", endColorstr="#{$end-color}", GradientType=1); /* IE6 & IE7 */
+}
+
+@mixin nav-main-active {
+  color: $white;
+  background-color: $black;
+  span {
+    border-bottom: 1px solid $blue !important;
+  }
+}
+
+@mixin nav-main-sub-menu-active {
+  color: $navy;
+  background-color: $white;
+}
+
+@mixin truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+$lists: 20;
+@mixin mega-dropdown-width {
+  @for $i from 1 through $lists - 1 {
+    .mega-dropdown-width-#{$i} {
+      width: ($i * 10.5rem);
+    }
+  }
+}
+
+// $incrementSize: Number - Width of the TH and TD
+// $columnCount: Number -  Column count
+// $filterColumnWidth: Number (percentage) - Width of the filters column
+@mixin table-column-drop($incrementSize: 100, $columnCount: 7, $filterColumnWidth: 0) {
+  $hideColumnValue: ceil($tiny-breakpoint-number / $incrementSize);
+  $filterWidth: $hideColumnValue - (($filterColumnWidth / 100) * $hideColumnValue);
+  table-layout: fixed;
+  th,td {
+    width: $incrementSize + px;
+    @if($filterColumnWidth > 0){
+      white-space: normal;
+      vertical-align: middle;
+    }
+  }
+  @for $i from 0 through $columnCount {
+    $minWidth:  $tiny-breakpoint + ($i*$incrementSize);
+    $maxWidth: $tiny-breakpoint + (($i+1)*$incrementSize) - 1;
+
+    @media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+      th, td {
+        @if $filterColumnWidth > 0 and $maxWidth > $tab-breakpoint{
+          &:nth-child(n + #{$i+$filterWidth}) {
+            display: none;
+          }
+        } @else {
+          &:nth-child(n + #{$i+$hideColumnValue}) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $dsk-breakpoint)  {
+    th, td {
+      &:nth-child(n + 9) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@mixin displayflex {
+  /* autoprefixer: off */
+  -js-display: flex; /* Shim for older IE versions */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex;
+}

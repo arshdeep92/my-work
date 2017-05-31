@@ -1,0 +1,321 @@
+#breadcrumb {
+  left: 0;
+  padding: 0;
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  top: -5.5rem;
+  margin-top: 5.5rem;
+  z-index: 100;
+  height: 4rem;
+  background-color: rgba($white, 0.95);
+  -webkit-transition: background-color 500ms ease 0s;
+  -khtml-transition: background-color 500ms ease 0s;
+  -icab-transition: background-color 500ms ease 0s;
+  -moz-transition: background-color 500ms ease 0s;
+  -ms-transition: background-color 500ms ease 0s;
+  -o-transition: background-color 500ms ease 0s;
+  transition: background-color 500ms ease 0s;
+
+  @include tab-only-responsive {
+    top: -4rem;
+    margin-top: 0;
+  }
+
+  @media only screen
+  and (min-device-width: $tab-breakpoint)
+  and (max-device-width: $dsk-breakpoint - 1)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    padding-left: 1rem;
+  }
+
+  .row {
+    height: 100%;
+    .col-lg-18 {
+      height: 100%;
+    }
+  }
+
+  &.splash {
+    -webkit-transition: top 0 linear 0s;
+    -khtml-transition: top 0 linear 0s;
+    -icab-transition: top 0 linear 0s;
+    -moz-transition: top 0 linear 0s;
+    -ms-transition: top 0 linear 0s;
+    -o-transition: top 0 linear 0s;
+    transition: top 0 linear 0s;
+    background-color: $white;
+    border-bottom: 1px solid $light-grey;
+  }
+
+  &.sticky {
+    position: fixed;
+    margin-top: 0;
+    top: 0;
+    -webkit-transition: top 300ms ease 0s;
+    -khtml-transition: top 300ms ease 0s;
+    -icab-transition: top 300ms ease 0s;
+    -moz-transition: top 300ms ease 0s;
+    -ms-transition: top 300ms ease 0s;
+    -o-transition: top 300ms ease 0s;
+    transition: top 300ms ease 0s;
+    border-bottom: 1px solid $light-grey;
+
+    button#global-search-open span {
+      color: $text;
+    }
+
+    @include tab-only-responsive {
+      top: 5rem;
+    }
+
+    @include tab-only {
+      top: 4rem;
+    }
+  }
+
+  &.un-stick {
+    top: -6.5rem;
+  }
+
+  .container {
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    overflow: visible;
+    height:100%;
+    nav {
+      border-radius: 0;
+      border: none;
+      margin-bottom: 0;
+      text-align: left;
+      height: 100%;
+      ul.breadcrumb {
+        padding: 0 0rem;
+        background-color: transparent;
+        border-radius: 0;
+        margin-bottom: 0;
+        font-family: $sans-cond;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1;
+        & > li {
+
+          & + li:before {
+            position: relative;
+            display: inline-block;
+            color: $light-grey;
+            font-family: 'Symbol';
+            font-style: normal;
+            font-size: 1rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            //content: "\027E9";
+          }
+
+          & > a, & > span, & > p {
+            color: #708BA1;
+            line-height: 4rem;
+          }
+
+          &.active{
+            @include mob {
+              position: static;
+            }
+            & > a, & > span, & > p{
+              color: $blue;
+            }
+          }
+
+          & > a {
+            display: inline-block;
+
+            &:hover, &:focus {
+              text-decoration: underline;
+              background-color: transparent;
+            }
+          }
+
+          & > p {
+            display: inline-block;
+          }
+
+          & > span {
+            width: 24px;
+
+            @include dsk {
+              width: 30px;
+            }
+          }
+          &.active.open {
+            & > span.breadcrumb-button {
+              .arrow {
+                display: inline;
+              }
+            }
+          }
+          &.active {
+            @include mega-dropdown-width;
+            .mega-dropdown-width-1{
+              .gradient-arrow {
+                display: none;
+              }
+            }
+            & > span.breadcrumb-button {
+              color: $blue;
+              position: relative;
+              .arrow {
+                content: "";
+                display: none;
+                position: absolute;
+                bottom: -1.4rem;
+                right: 50%;
+                margin: 0 auto;
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                z-index: 992; //default dropdown backdrop 990
+                border-bottom: 16px solid $navy;
+              }
+              & > label.active-crumb-label {
+                cursor: pointer;
+                font-weight: normal;
+              }
+            }
+            & > span.breadcrumb-button:hover {
+              cursor: pointer;
+            }
+            div#breadcrumb-arrow {
+              font-size: 0.5rem;
+              color: $blue;
+            }
+            & > ul.mega-dropdown-menu {
+              opacity: 0;
+              z-index: 991; //default dropdown backdrop 990
+              background-color: white;
+              margin-right: -2rem;
+              margin-top: 0px;
+              border: 3px solid $navy;
+              box-shadow: 0px 0px 15px 1px $light-grey;
+              border-radius: 10px;
+              @include mob {
+                width: 100%;
+                padding: 1rem;
+                margin: 0;
+              }
+              > li {
+                @include mob {
+                  float: left;
+                  /* one item */
+                  &:nth-child(1):nth-last-child(1) {
+                    margin-left: 0;
+                  }
+
+                  /* two items */
+                  &:nth-child(1):nth-last-child(2),
+                  &:nth-child(2):nth-last-child(1) {
+                    margin-left: 1rem;
+                  }
+                  &:nth-child(1):nth-last-child(2) {
+                    margin-left: 0;
+                  }
+                }
+              }
+              li {
+                float: left;
+                display: inline;
+                padding-left: 1%;
+                @include mob {
+                  /* one item */
+                  &:nth-child(1):nth-last-child(1) {
+                    width: 100%;
+                  }
+
+                  /* two items */
+                  &:nth-child(1):nth-last-child(2),
+                  &:nth-child(2):nth-last-child(1) {
+                    width: 48%;
+                  }
+
+                  display: block;
+                  padding: 0;
+                }
+                [data-parent="#breadcrumbAccordian"] {
+                  @include mob {
+                    padding: .5rem;
+                    background-color: $light-grey;
+                  }
+                }
+                ul.breadcrumb-list {
+                  width: 10rem;
+                  list-style-type: none;
+                  padding-left: 0%;
+                  @include mob {
+                    width: 100%;
+                  }
+                  & > li {
+                    width: 10rem;
+                    border-bottom: 1px solid lightgrey;
+                    line-height: 1.25rem;
+                    padding-left: 2.5%;
+                    padding-top: 0.3rem;
+                    padding-bottom: 0.3rem;
+                    @include mob {
+                      width: 100%;
+                    }
+                    &.selected {
+                      position: relative;
+                      @include backgroundGradient($white, $smoke, $gradientOrientationStart: left, $gradientOrientationEnd: right);
+                      & > a {
+                        color: $navy;
+                        font-weight: bold;
+                        font-size: 1rem;
+                      }
+                      & > div.gradient-arrow {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: -7px;
+                        margin: 0 auto;
+                        width: 0;
+                        height: 0;
+                        border-top: 1rem solid transparent;
+                        border-bottom: 1rem solid transparent;
+
+                        border-left: 7px solid $smoke;
+                      }
+                    }
+                    &:last-child {
+                      border-bottom: 0;
+                    }
+                    & > a {
+                      color: $navy;
+                      font-size: 1rem;
+                      @include mob {
+                        display: block;
+                        padding: .8rem 0;
+                      }
+                    }
+                    &.active {
+                      background: $smoke;
+                      & > a {
+                        color: $navy;
+                        font-weight: 700;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            & > ul.single-list{
+              margin-right: -1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

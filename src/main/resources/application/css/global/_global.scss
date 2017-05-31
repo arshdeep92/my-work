@@ -1,0 +1,63 @@
+/* -------------------------------------
+    GLOBAL
+------------------------------------- */
+@import 'navigation';
+@import 'breadcrumb';
+@import 'header';
+@import 'footer';
+
+//Unordered List Overrides
+ul {
+  list-style-position: inside;
+}
+
+//Table Overrides
+.table > thead > tr > th {
+  border-bottom: none;
+}
+.table-responsive {
+  @include mob {
+    border: 0;
+  }
+}
+//Radio Button Styling
+.radio {
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}
+
+@mixin radioLabelStyle() {
+  padding-left: 0;
+  color: $navy;
+  font-family:$sans;
+  font-size: 0.875rem;
+  font-weight: 600;
+  span {
+    display: inline-block;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0 .5rem 0 0;
+    vertical-align: text-bottom;
+    cursor: pointer;
+    border-radius: 50%;
+    border: (5/16 + 0rem) solid $white;
+    background-color: $white;
+    box-shadow: 0 0 0 1px $light-grey;
+  }
+}
+
+input[type="radio"] {
+  display:none;
+  & + label {
+    @include radioLabelStyle();
+  }
+
+  &:checked + label span{
+     background-color: $blue;
+     box-shadow: 0 0 0 2px $navy;
+  }
+}
+
+.table-border-left {
+  border-left: 1px solid $basic-grey;
+}

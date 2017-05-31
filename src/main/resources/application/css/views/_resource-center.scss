@@ -1,0 +1,57 @@
+.resource-center-landing-template {
+
+  main {
+    padding-top: 0;
+  }
+
+  .container-fluid:first-of-type {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.resource-center-landing-links-row {
+  margin-bottom: 1.5rem;
+  //The following lines were removed to improve page responsivness in
+  //the Resource Center Links Container Identity: 6510e195-6707-427d-bcfd-ad9cda2c4306
+  //@include displayflex;
+  //.dotcms-edit-mode & {
+    //display: block;
+  //}
+}
+
+.resource-center-landing-links {
+  margin: 1rem 0 0.5rem;
+  padding: 1rem;
+  height: 100%;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+
+  h3, h4 {
+    color: $blue;
+    font-family: $heading;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.11;
+    text-align: left;
+    padding-bottom: 0.75rem;
+    margin-top: 0;
+    border-bottom: 1px solid $grey;
+  }
+
+  .resource-center-landing-links-image img {
+    max-width: 17rem;
+    width: 100%;
+  }
+
+  p {
+    font-family: $sans;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    color: $text;
+    font-weight: 300;
+    text-align: left;
+    padding-bottom: 1rem;
+  }
+}
